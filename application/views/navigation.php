@@ -2,19 +2,19 @@
 <nav>
 	<ul>
 		<li>
-			<?php echo anchor(base_url() . 'c_front/index', 'Home'); ?>
+			<?php echo anchor(base_url() . 'C_front/index', 'Home'); ?>
 		</li>
 		<li>
-			<?php echo anchor(base_url() . 'c_front/cakes', 'Cakes'); ?>
+			<?php echo anchor(base_url() . 'C_front/projects', 'Projects'); ?>
 		</li>
 		<li>
-			<?php echo anchor(base_url() . 'c_front/articles', 'Articles'); ?>
+			<?php echo anchor(base_url() . 'C_front/donors', 'Donors'); ?>
 		</li>
 		<li>
-			<a>Orders</a>
+			<?php echo anchor(base_url() . 'C_front/trainers', 'Trainers'); ?>
 		</li>
 		<li>
-			<?php echo anchor(base_url() . 'c_front/moreinfo', 'More Info.'); ?>
+			<?php echo anchor(base_url() . 'C_front/trainees', 'Trainees'); ?>
 		</li>
 	</ul>
 </nav>

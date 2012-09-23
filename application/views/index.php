@@ -23,36 +23,11 @@
 					</section>
 				</section>
 			</section>
-			<nav>
-				<ul>
-					<li>
-						<a>Home</a>
-					</li>
-					<li>
-						<a>Info</a>
-					</li>
-					<li>
-						<a>About</a>
-					</li>
-					<li>
-						<a>Contact Us</a>
-					</li>
-				</ul>
-				<!--<section class="search">
-					<form>
-						<input type="search" placeholder="Search Here..."/
-					</form>
-				</section> -->
-			</nav>
+			<?php $this->load->view('navigation'); ?>
 		</header>
 		<section class="content"></section>
 		<footer>
-			<section class="social">
-				<img src="<?php echo base_url(); ?>images/social/facebook.png"  />
-				<img src="<?php echo base_url(); ?>images/social/twitter.png"/>
-				<img src="<?php echo base_url(); ?>images/social/google.png" />
-				<img src="<?php echo base_url(); ?>images/social/linkedin.png"/>
-			</section>
+			
 		</footer>
 	
 	</body>

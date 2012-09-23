@@ -14,50 +14,24 @@ class C_Front extends CI_Controller {
 
 	public function index() {
 		$data['title'] = 'Welcome';
-		$data['content'] = "<p>Cakes Delights</p>";
 		$this -> load -> view('index', $data);
 	}//End of index file
 
 	public function projects(){
-		$data["title"]="projects details";
-		$this->load->view ("projects");
+		$data["title"]="Projects";
+		$this->load->view ("projects",$data);
 	}
-	public function cakes() {
-		$this -> getCakes();
-		$this -> data['title'] = "Cakes";
-		$this -> data['content'] = "<p>Cakes Delights</p>";
-		$this -> data['count'] = $this -> count;
-		$this -> load -> view('cakes', $this -> data);
+	public function donors(){
+		$data["title"]="Donors";
+		$this->load->view ("donors",$data);
 	}
-
-	public function articles() {
-		$data['title'] = 'Articles';
-		$data['content'] = "<p>Cakes Delights</p>";
-		$this -> load -> view('articles', $data);
+	public function trainers(){
+		$data["title"]="Trainers";
+		$this->load->view ("trainers",$data);
 	}
-
-	public function moreinfo() {
-		$data['title'] = 'More Info.';
-		$data['content'] = "<p>Cakes Delights</p>";
-		$this -> load -> view('more_info', $data);
-	}
-
-	public function getCakes() {
-		$this -> load -> model('models_cakesDelights/M_Cakes');
-		$this -> M_Cakes -> getCakesInformation();
-		$this -> data['cakes'] = $this -> M_Cakes -> cakes;
-		//$this->load->view('cakes', $data);
-
-	}
-
-	public function getArticles() {
-		$this -> load -> model('models_cakesDelights/M_Articles');
-		$this -> M_Articles -> getArticlesInformation();
-	}
-
-	public function getArticlesFront() {
-		$this -> load -> model('models_cakesDelights/M_ArticlesFront');
-		$this -> M_ArticlesFront -> getArticlesFrontInformation();
+	public function trainees(){
+		$data["title"]="Trainees";
+		$this->load->view ("trainees",$data);
 	}
 
 }
