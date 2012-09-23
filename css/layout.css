@@ -1,7 +1,6 @@
 @import url('fonts.css');
 
 body {
-	background-image: url('../images/myIdentity.jpg');
 	width: 100%;
 	margin: auto;
 	overflow: hidden;
@@ -102,3 +101,71 @@ ul li.last {
 	height: 10%;
 }
 
+/* Parent Container
+ *  Login Form */
+.login {
+	margin: auto;
+	margin-top: 200px;
+	width: 30%;
+	height: auto;
+	border: 2px solid #999;
+	border-radius:4px;
+	padding:1%;
+}
+/* Child Form
+ Contents :
+ 1. Input Fields:  Username
+ 2. Password
+ 3. Button: Login
+ *
+ * */
+.form-login {
+	width: 80%;
+	margin: auto;
+}
+.form-title {
+	border-bottom: 1px solid #999;
+	font-size: 20px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.form-title .title-text {
+	padding: 5px 10px 5px 10px;
+}
+/*
+ Input fields within Login Form
+ Attribute => Default
+ * */
+.form-login input {
+	padding: 10px 10px 10px 10px;
+	width: 100%;
+	border: 1px solid #999;
+	outline: none;
+	font-family: Quicksand;
+	font-size: 100%;
+}
+/*
+ Input fields within Login Form
+ Attribute => Focus
+ * */
+.form-login input:focus {
+	font-family: Quicksand Bold;
+}
+/*
+ Button within Login Form
+ * */
+.form-login button {
+	font-family: Quicksand;
+}
+form input, form textarea {
+	border: 1px solid #999;
+	outline: none;
+	padding: 5px 5px 5px 5px;
+	margin: 5px 5px 5px 5px;
+}
+.form-login input:focus, form input:focus, form textarea:focus {
+	-webkit-box-shadow: inset 0px 3px 6px -3px #000;
+	-moz-box-shadow: inset 0px 3px 6px -3px #000;
+	box-shadow: inset 0px 3px 6px -3px #000;
+	border: 1px solid #3333FF;
+}

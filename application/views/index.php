@@ -1,34 +1,29 @@
 <html>
 	<head>
-
-		<!-- -->
+		
 		<!-- Attach CSS files -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/layout.css"/>
-
-		<!-- Attach JavaScript files -->
-		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"></script>
-		<script src="<?php echo base_url()?>js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
-
-		<title><?php echo $title; ?></title>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>css/awesomebuttons.css"/>
+			<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"></script>
 	</head>
-
 	<body>
+	
 
-		<header>
-			<section class="banner">
-				<section class="user">
-					<section class="details">
-						Signed in as:
-						Account Settings Log Out
-					</section>
+		<section class="login">
+			<section class="form-title">
+				<section class="title-text">
+					Sign In
 				</section>
 			</section>
-			<?php $this->load->view('navigation'); ?>
-		</header>
-		<section class="content"></section>
-		<footer>
-			
-		</footer>
-	
+			<form class="form-login" method="post" accept-charset="utf-8">
+
+				<input name="username" type="text" placeholder="Username / Email Address"/>
+				<p></p>
+				<input  name="secret" type="password" placeholder="Password"/>
+				<p></p>
+				<button type="submit" class="awesome large" formaction="<?php echo base_url().'c_auth/login'?>" />
+				Login</button>
+			</form>
+		</section>
 	</body>
 </html>

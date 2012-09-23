@@ -13,25 +13,33 @@ class C_Front extends CI_Controller {
 	}
 
 	public function index() {
-		$data['title'] = 'Welcome';
+		$data['title'] = 'Login';
 		$this -> load -> view('index', $data);
 	}//End of index file
 
-	public function projects(){
-		$data["title"]="Projects";
-		$this->load->view ("projects",$data);
+	public function home() {
+		$data["title"] = "Home";
+		$this -> load -> view("home", $data);
 	}
-	public function donors(){
-		$data["title"]="Donors";
-		$this->load->view ("donors",$data);
+	
+	public function projects() {
+		$data["title"] = "Projects";
+		$this -> load -> view("projects", $data);
 	}
-	public function trainers(){
-		$data["title"]="Trainers";
-		$this->load->view ("trainers",$data);
+
+	public function donors() {
+		$data["title"] = "Donors";
+		$this -> load -> view("donors", $data);
 	}
-	public function trainees(){
-		$data["title"]="Trainees";
-		$this->load->view ("trainees",$data);
+
+	public function trainers() {
+		$data["title"] = "Trainers";
+		$this -> load -> view("trainers", $data);
+	}
+
+	public function trainees() {
+		$data["title"] = "Trainees";
+		$this -> load -> view("trainees", $data);
 	}
 
 }
