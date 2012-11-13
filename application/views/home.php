@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$sessionEmail = $this -> session -> userdata('email');
+$sessionEmail = $this -> session -> userdata('name');
 $accessLevel=$this -> session -> userdata('userRights');
 ?>
 

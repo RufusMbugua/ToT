@@ -21,5 +21,6 @@ class C_Operations extends CI_Controller {
 		$this -> load -> view('view', $data);
 		
 	}
+	
 
 }

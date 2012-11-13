@@ -13,7 +13,7 @@
 
 </header>
 <section class='content'>
-
+    <?php $this -> load -> view('elements/message'); ?>
 	<?php $this -> load -> view('elements/trainer-form'); ?>
 
 </section>

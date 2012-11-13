@@ -35,10 +35,10 @@ nav {
 	margin: auto;
 }
 
-.image-scroller{
-	padding:1%;
-	width:58%;
-	margin:auto;
+.image-scroller {
+	padding: 1%;
+	width: 58%;
+	margin: auto;
 }
 .user {
 	position: absolute;
@@ -125,8 +125,8 @@ form {
 	padding: 3%;
 	margin: auto;
 }
-form label{
-	padding:1%;
+form label {
+	padding: 1%;
 }
 form input {
 	margin: auto;
@@ -142,7 +142,7 @@ form input {
 }
 form input[type=submit] {
 	margin: auto;
-	margin-left:25%;
+	margin-left: 25%;
 	width: 50%;
 }
 form h3 {
@@ -152,10 +152,10 @@ form h3 {
 	font-family: Timeless Bold;
 	width: 100%;
 }
-form .fields{
-	margin:auto;
-	margin-top:2%;
-	width:90%;
+form .fields {
+	margin: auto;
+	margin-top: 2%;
+	width: 90%;
 }
 
 /* Parent Container
@@ -237,12 +237,12 @@ form input, form textarea {
 	float: left;
 	width: 15%;
 	height: 40%;
-	left:3%;
+	left: 3%;
 }
 .sidebar {
 	padding: 5%;
 	height: 45%;
-	margin-bottom:5%;
+	margin-bottom: 5%;
 	display: block;
 	border: 1px solid black;
 	display: block;
@@ -250,14 +250,12 @@ form input, form textarea {
 	box-shadow: inset 0px 0px 5px 1px #000000;
 }
 
-
 /*
  * Tab Styling
  */
-.tab-title{
+.tab-title {
 
 }
-
 
 @charset "utf-8";
 /* CSS Document */
@@ -268,7 +266,7 @@ form input, form textarea {
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
-	margin:0 10px 10px 10px;
+	margin: 0 10px 10px 10px;
 	font-family: 'Helvetica Neue', Arial, Helvetica, Verdana, sans-serif;
 	-moz-border-radius: 5px;
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -307,22 +305,22 @@ form input, form textarea {
 	background-color: #749a02;
 }
 .jungle.awesome, .jungle.awesome:visited {
-	background-color:#693;
+	background-color: #693;
 }
 .jungle.awesome:hover {
-	background-color:#360;
+	background-color: #360;
 }
 .blue.awesome, .blue.awesome:visited {
 	background-color: #2daebf;
 }
-.blue.awesome:hover, .blue.awesome#current{
+.blue.awesome:hover, .blue.awesome#current {
 	background-color: #007d9a;
 }
 
 .myblue.awesome, .myblue.awesome:visited {
 	background-color: #3333FF;
 }
-.myblue.awesome:hover, .myblue.awesome#current{
+.myblue.awesome:hover, .myblue.awesome#current {
 	background-color: #0033CC;
 }
 
@@ -352,15 +350,10 @@ form input, form textarea {
 }
 
 /*
-Sizes: small, medium, large
-Colors: Green, Blue, Red, Magenta, Orange, Yellow
-Sample: <button class="large awesome blue" type="submit">Awesome Blue Button</button>
-*/
-
-
-
-
-
+ Sizes: small, medium, large
+ Colors: Green, Blue, Red, Magenta, Orange, Yellow
+ Sample: <button class="large awesome blue" type="submit">Awesome Blue Button</button>
+ */
 
 /*
  * jQuery Nivo Slider v3.0.1
@@ -370,121 +363,179 @@ Sample: <button class="large awesome blue" type="submit">Awesome Blue Button</bu
  * Free to use and abuse under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  */
- 
+
 /* The Nivo Slider styles */
 .nivoSlider {
-	position:relative;
-	width:100%;
-	height:auto;
+	position: relative;
+	width: 100%;
+	height: auto;
 	overflow: hidden;
 }
 .nivoSlider img {
-	position:absolute;
-	top:0px;
-	left:0px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }
 .nivo-main-image {
 	display: block !important;
-	position: relative !important; 
+	position: relative !important;
 	width: 100% !important;
 }
 
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {
-	position:absolute;
-	top:0px;
-	left:0px;
-	width:100%;
-	height:100%;
-	border:0;
-	padding:0;
-	margin:0;
-	z-index:6;
-	display:none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	z-index: 6;
+	display: none;
 }
 /* The slices and boxes in the Slider */
 .nivo-slice {
-	display:block;
-	position:absolute;
-	z-index:5;
-	height:100%;
-	top:0;
+	display: block;
+	position: absolute;
+	z-index: 5;
+	height: 100%;
+	top: 0;
 }
 .nivo-box {
-	display:block;
-	position:absolute;
-	z-index:5;
-	overflow:hidden;
+	display: block;
+	position: absolute;
+	z-index: 5;
+	overflow: hidden;
 }
-.nivo-box img { display:block; }
+.nivo-box img {
+	display: block;
+}
 
 /* Caption styles */
 .nivo-caption {
-	position:absolute;
-	left:0px;
-	bottom:0px;
-	background:#000;
-	color:#fff;
-	width:100%;
-	z-index:8;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	background: #000;
+	color: #fff;
+	width: 100%;
+	z-index: 8;
 	padding: 5px 10px;
 	opacity: 0.8;
 	overflow: hidden;
 	display: none;
 	-moz-opacity: 0.8;
-	filter:alpha(opacity=8);
+	filter: alpha(opacity=8);
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
 }
 .nivo-caption p {
-	padding:5px;
-	margin:0;
+	padding: 5px;
+	margin: 0;
 }
 .nivo-caption a {
-	display:inline !important;
+	display: inline !important;
 }
 .nivo-html-caption {
-    display:none;
+	display: none;
 }
 /* Direction nav styles (e.g. Next & Prev) */
 .nivo-directionNav a {
-	position:absolute;
-	top:45%;
-	z-index:9;
-	cursor:pointer;
+	position: absolute;
+	top: 45%;
+	z-index: 9;
+	cursor: pointer;
 }
 .nivo-prevNav {
-	left:0px;
+	left: 0px;
 }
 .nivo-nextNav {
-	right:0px;
+	right: 0px;
 }
 /* Control nav styles (e.g. 1,2,3...) */
 .nivo-controlNav {
-	text-align:center;
+	text-align: center;
 	padding: 15px 0;
 }
 .nivo-controlNav a {
-	cursor:pointer;
+	cursor: pointer;
 }
 .nivo-controlNav a.active {
-	font-weight:bold;
+	font-weight: bold;
 }
 
-.slider-wrapper { 
-	width: 100%; 
+.slider-wrapper {
+	width: 100%;
 }
 
-
-.theme-pascal.slider-wrapper,
-.theme-orman.slider-wrapper {
-    margin-top:150px;
+.theme-pascal.slider-wrapper, .theme-orman.slider-wrapper {
+	margin-top: 150px;
 }
 
 /*====================*/
 /*=== Other Styles ===*/
 /*====================*/
 .clear {
-	clear:both;
+	clear: both;
+}
+
+.message {
+
+	padding: 4px;
+	font-size: 1.1em;
+	text-align: center;
+	color: white;
+	box-shadow: 0 0.5px 1px 0.6px #000;
+	-moz-box-shadow: 0 0.5px 6px 1px #000;
+	-webkit-box-shadow: 0 1px 5px 0 #000;
+	-o-box-shadow: 0 0.5px 1px 0.6px #000;
+}
+
+.error {
+	background-image: linear-gradient(bottom, rgb(217,76,76) 34%, rgb(255,99,99) 67%, rgb(255,110,110) 84%);
+	background-image: -o-linear-gradient(bottom, rgb(217,76,76) 34%, rgb(255,99,99) 67%, rgb(255,110,110) 84%);
+	background-image: -moz-linear-gradient(bottom, rgb(217,76,76) 34%, rgb(255,99,99) 67%, rgb(255,110,110) 84%);
+	background-image: -webkit-linear-gradient(bottom, rgb(217,76,76) 34%, rgb(255,99,99) 67%, rgb(255,110,110) 84%);
+	background-image: -ms-linear-gradient(bottom, rgb(217,76,76) 34%, rgb(255,99,99) 67%, rgb(255,110,110) 84%);
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.34, rgb(217,76,76)),
+	color-stop(0.67, rgb(255,99,99)),
+	color-stop(0.84, rgb(255,110,110))
+	);
+}
+.success {
+	background-image: linear-gradient(bottom, rgb(71,217,88) 34%, rgb(99,255,117) 67%, rgb(130,255,130) 84%);
+	background-image: -o-linear-gradient(bottom, rgb(71,217,88) 34%, rgb(99,255,117) 67%, rgb(130,255,130) 84%);
+	background-image: -moz-linear-gradient(bottom, rgb(71,217,88) 34%, rgb(99,255,117) 67%, rgb(130,255,130) 84%);
+	background-image: -webkit-linear-gradient(bottom, rgb(71,217,88) 34%, rgb(99,255,117) 67%, rgb(130,255,130) 84%);
+	background-image: -ms-linear-gradient(bottom, rgb(71,217,88) 34%, rgb(99,255,117) 67%, rgb(130,255,130) 84%);
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.34, rgb(71,217,88)),
+	color-stop(0.67, rgb(99,255,117)),
+	color-stop(0.84, rgb(130,255,130))
+	);
+}
+.guide {
+	background-image: linear-gradient(bottom, rgb(82,81,81) 34%, rgb(102,98,98) 67%, rgb(107,107,107) 84%);
+	background-image: -o-linear-gradient(bottom, rgb(82,81,81) 34%, rgb(102,98,98) 67%, rgb(107,107,107) 84%);
+	background-image: -moz-linear-gradient(bottom, rgb(82,81,81) 34%, rgb(102,98,98) 67%, rgb(107,107,107) 84%);
+	background-image: -webkit-linear-gradient(bottom, rgb(82,81,81) 34%, rgb(102,98,98) 67%, rgb(107,107,107) 84%);
+	background-image: -ms-linear-gradient(bottom, rgb(82,81,81) 34%, rgb(102,98,98) 67%, rgb(107,107,107) 84%);
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.34, rgb(82,81,81)),
+	color-stop(0.67, rgb(102,98,98)),
+	color-stop(0.84, rgb(107,107,107))
+	);
 }

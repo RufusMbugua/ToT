@@ -15,15 +15,7 @@
 					Sign In
 				</section>
 			</section>
-			<form class="form-login" method="post" accept-charset="utf-8">
-
-				<input name="username" type="text" placeholder="Username / Email Address"/>
-				<p></p>
-				<input  name="secret" type="password" placeholder="Password"/>
-				<p></p>
-				<button type="submit" class="awesome large" formaction="<?php echo base_url().'c_auth/login'?>" />
-				Login</button>
-			</form>
+		<?php $this->load->view('elements/login-form'); ?>
 		</section>
 		
 	</body>

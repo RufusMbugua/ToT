@@ -34,6 +34,8 @@ class C_Front extends CI_Controller {
 
 	public function trainers() {
 		$data["title"] = "Trainers";
+		$data["messageType"]="guide";
+		$data["message"] = "Please Fill In Registration Form";
 		$this -> load -> view("trainers", $data);
 	}
 
