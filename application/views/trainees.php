@@ -20,7 +20,7 @@
 					</section>
 				</section>
 			</section>
-			<?php $this->load->view('navigation'); ?>
+			<?php $this->load->view('menus/main-menu'); ?>
 			
 		</header>
 		<section class='content'>

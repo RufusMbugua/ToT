@@ -20,7 +20,7 @@
 					</section>
 				</section>
 			</section>
-			<?php $this->load->view('navigation'); ?>
+			<?php $this->load->view('menus/main-menu'); ?>
 			
 		</header>
 		<section class='content'>
@@ -28,12 +28,7 @@
 			<section class ="project navigation">
 				
 				<nav>
-				<ul>
-					<li> <a href="">View </a> </li>
-					<li> <a href=""> New</a> </li>
-					<li> <a href=""> Edit</a> </li>
-					<li> <a href=""> Deactivate</a> </li>
-				</ul>
+				
 			</nav>
 			</section>
 			
@@ -44,7 +39,9 @@
 			</section>
 			
 		</section>
-		<footer></footer>
+		<?php $this->load->view('elements/left-sidebar'); ?>
+	
+		
 	</body>
 	
 	

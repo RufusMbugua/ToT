@@ -4,21 +4,7 @@ $sessionEmail = $this -> session -> userdata('email');
 $accessLevel=$this -> session -> userdata('userRights');
 ?>
 
-<html>
-	<head>
-
-		<!-- -->
-		<!-- Attach CSS files -->
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/layout.css"/>
-
-		<!-- Attach JavaScript files -->
-		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"></script>
-		<script src="<?php echo base_url()?>js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
-
-		<title><?php echo $title; ?></title>
-	</head>
-
-	<body>
+<?php $this ->load ->view('segments/header'); ?>
 
 		<header>
 			<section class="banner">
@@ -30,15 +16,23 @@ $accessLevel=$this -> session -> userdata('userRights');
 					</section>
 				</section>
 			</section>
-			<?php $this->load->view('navigation'); ?>
+			<?php $this->load->view('menus/main-menu'); ?>
 		</header>
+		<section class="image-scroller">
+			<div class="slider-wrapper theme-default">
+							<div id="slider" class="nivoSlider">
+								<img src="<?php echo base_url(); ?>images/nemo.jpg" data-thumb="<?php echo base_url(); ?>images/nemo.jpg" alt="" />
+								<img src="<?php echo base_url(); ?>images/toystory.jpg" data-thumb="<?php echo base_url(); ?>images/toystory.jpg" alt="" title="This is an example of a caption" />
+								<img src="<?php echo base_url(); ?>images/up.jpg" data-thumb="<?php echo base_url(); ?>images/up.jpg" alt=""/>
+							</div>
+							<div id="htmlcaption" class="nivo-html-caption">
+								<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+							</div>
+						</div>
+		</section>
 		<section class="content"></section>
-		<footer>
-			
-		</footer>
-	
-	</body>
-</html>
+		<?php $this->load->view('elements/left-sidebar'); ?>
+<?php $this ->load ->view('segments/footer'); ?>
 
 <?php
  ob_end_flush();

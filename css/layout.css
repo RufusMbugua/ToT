@@ -3,29 +3,43 @@
 body {
 	width: 100%;
 	margin: auto;
-	overflow: hidden;
+	background-color: #333;
 }
 header {
 	height: 150px;
 	width: 100%;
 }
-header nav{
-	height:30%;
+header nav {
+	height: 30%;
 }
 .banner {
-	height: 70%;
+	height: 60%;
 	width: 100%;
+}
+nav, .content, .sidebar {
+	background: rgb(252,255,244); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(252,255,244,1) 0%, rgba(223,229,215,1) 40%, rgba(179,190,173,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,255,244,1)), color-stop(40%,rgba(223,229,215,1)), color-stop(100%,rgba(179,190,173,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 ); /* IE6-9 */
 }
 nav {
 	box-shadow: 0 0.5px 1px 0.6px #000;
 	-moz-box-shadow: 0 0.5px 6px 1px #000;
 	-webkit-box-shadow: 0 1px 5px 0.5px #000;
 	-o-box-shadow: 0 0.5px 1px 0.6px #000;
-	width: 100%;
-	
-	background-image: url('../images/back.jpg');
+	width: 60%;
+	margin: auto;
 }
 
+.image-scroller{
+	padding:1%;
+	width:58%;
+	margin:auto;
+}
 .user {
 	position: absolute;
 	right: -10px;
@@ -42,20 +56,20 @@ nav {
 	margin-left: 10px;
 }
 footer {
-	position: absolute;
-	bottom: 0;
 	height: 20%;
 	width: 100%;
 	background-image: url('../images/back_2.jpg');
 	-webkit-box-shadow: inset 0px 2px 5px 1px #000;
 	box-shadow: inset 0px 2px 5px 1px #000;
 }
+.within {
+
+}
 .content {
 	margin: auto;
 	margin-top: 40px;
-	background-image: url('../images/back.jpg');
-	height: 50%;
-	width: 70%;
+	padding: 1%;
+	width: 58%;
 	border-radius: 5px;
 	box-shadow: 0 0.5px 1px 0.6px #000;
 	-moz-box-shadow: 0 0.5px 6px 1px #000;
@@ -101,6 +115,49 @@ ul li.last {
 	height: 10%;
 }
 
+/*
+ * Form Formatting
+ *
+ *
+ *
+ */
+form {
+	padding: 3%;
+	margin: auto;
+}
+form label{
+	padding:1%;
+}
+form input {
+	margin: auto;
+	padding: 1%;
+	width: 100%;
+	border: 1px solid #333;
+	outline: none;
+	font-family: Quicksand;
+	font-size: 100%;
+	border: 1px solid #999;
+	outline: none;
+	margin-bottom: 2%;
+}
+form input[type=submit] {
+	margin: auto;
+	margin-left:25%;
+	width: 50%;
+}
+form h3 {
+	margin: 0;
+	font-size: 1.3em;
+	border-bottom: 1px solid #333;
+	font-family: Timeless Bold;
+	width: 100%;
+}
+form .fields{
+	margin:auto;
+	margin-top:2%;
+	width:90%;
+}
+
 /* Parent Container
  *  Login Form */
 .login {
@@ -108,9 +165,17 @@ ul li.last {
 	margin-top: 200px;
 	width: 30%;
 	height: auto;
-	border: 2px solid #999;
-	border-radius:4px;
-	padding:1%;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	padding: 1%;
+	background: rgb(252,255,244); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(252,255,244,1) 0%, rgba(223,229,215,1) 40%, rgba(179,190,173,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,255,244,1)), color-stop(40%,rgba(223,229,215,1)), color-stop(100%,rgba(179,190,173,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 ); /* IE6-9 */
 }
 /* Child Form
  Contents :
@@ -132,18 +197,7 @@ ul li.last {
 .form-title .title-text {
 	padding: 5px 10px 5px 10px;
 }
-/*
- Input fields within Login Form
- Attribute => Default
- * */
-.form-login input {
-	padding: 10px 10px 10px 10px;
-	width: 100%;
-	border: 1px solid #999;
-	outline: none;
-	font-family: Quicksand;
-	font-size: 100%;
-}
+
 /*
  Input fields within Login Form
  Attribute => Focus
@@ -158,14 +212,279 @@ ul li.last {
 	font-family: Quicksand;
 }
 form input, form textarea {
-	border: 1px solid #999;
-	outline: none;
-	padding: 5px 5px 5px 5px;
-	margin: 5px 5px 5px 5px;
+
 }
 .form-login input:focus, form input:focus, form textarea:focus {
 	-webkit-box-shadow: inset 0px 3px 6px -3px #000;
 	-moz-box-shadow: inset 0px 3px 6px -3px #000;
 	box-shadow: inset 0px 3px 6px -3px #000;
 	border: 1px solid #3333FF;
+}
+/*
+ * Registration Forms
+ *
+ */
+.registration-form {
+	width: 50%;
+	margin: auto;
+}
+/*
+ * Left Sidebar
+ */
+.left-sidebar {
+	position: absolute;
+	top: 22%;
+	float: left;
+	width: 15%;
+	height: 40%;
+	left:3%;
+}
+.sidebar {
+	padding: 5%;
+	height: 45%;
+	margin-bottom:5%;
+	display: block;
+	border: 1px solid black;
+	display: block;
+	-webkit-box-shadow: inset 0px 0px 5px 1px #000000;
+	box-shadow: inset 0px 0px 5px 1px #000000;
+}
+
+
+/*
+ * Tab Styling
+ */
+.tab-title{
+
+}
+
+
+@charset "utf-8";
+/* CSS Document */
+.awesome, .awesome:visited {
+	background: #222 url(http://zurb.com/images/alert-overlay.png) repeat-x;
+	border: 0px;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	margin:0 10px 10px 10px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, Verdana, sans-serif;
+	-moz-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	padding: 5px 10px 6px;
+	position: relative;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.awesome:hover {
+	background-color: #111;
+	color: #fff;
+}
+.awesome:active {
+	top: 1px;
+}
+
+.small.awesome, .small.awesome:visited {
+	font-size: 11px;
+}
+.awesome, .awesome:visited, .medium.awesome, .medium.awesome:visited {
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+.large.awesome, .large.awesome:visited {
+	font-size: 14px;
+	padding: 8px 14px 9px;
+}
+.green.awesome, .green.awesome:visited {
+	background-color: #91bd09;
+}
+.green.awesome:hover {
+	background-color: #749a02;
+}
+.jungle.awesome, .jungle.awesome:visited {
+	background-color:#693;
+}
+.jungle.awesome:hover {
+	background-color:#360;
+}
+.blue.awesome, .blue.awesome:visited {
+	background-color: #2daebf;
+}
+.blue.awesome:hover, .blue.awesome#current{
+	background-color: #007d9a;
+}
+
+.myblue.awesome, .myblue.awesome:visited {
+	background-color: #3333FF;
+}
+.myblue.awesome:hover, .myblue.awesome#current{
+	background-color: #0033CC;
+}
+
+.red.awesome, .red.awesome:visited {
+	background-color: #e33100;
+}
+.red.awesome:hover {
+	background-color: #872300;
+}
+.magenta.awesome, .magenta.awesome:visited {
+	background-color: #a9014b;
+}
+.magenta.awesome:hover {
+	background-color: #630030;
+}
+.orange.awesome, .orange.awesome:visited {
+	background-color: #ff5c00;
+}
+.orange.awesome:hover {
+	background-color: #d45500;
+}
+.yellow.awesome, .yellow.awesome:visited {
+	background-color: #ffb515;
+}
+.yellow.awesome:hover {
+	background-color: #fc9200;
+}
+
+/*
+Sizes: small, medium, large
+Colors: Green, Blue, Red, Magenta, Orange, Yellow
+Sample: <button class="large awesome blue" type="submit">Awesome Blue Button</button>
+*/
+
+
+
+
+
+
+/*
+ * jQuery Nivo Slider v3.0.1
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+	width:100%;
+	height:auto;
+	overflow: hidden;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.nivo-main-image {
+	display: block !important;
+	position: relative !important; 
+	width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+	top:0;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+	overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background:#000;
+	color:#fff;
+	width:100%;
+	z-index:8;
+	padding: 5px 10px;
+	opacity: 0.8;
+	overflow: hidden;
+	display: none;
+	-moz-opacity: 0.8;
+	filter:alpha(opacity=8);
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+	text-align:center;
+	padding: 15px 0;
+}
+.nivo-controlNav a {
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+
+.slider-wrapper { 
+	width: 100%; 
+}
+
+
+.theme-pascal.slider-wrapper,
+.theme-orman.slider-wrapper {
+    margin-top:150px;
+}
+
+/*====================*/
+/*=== Other Styles ===*/
+/*====================*/
+.clear {
+	clear:both;
 }

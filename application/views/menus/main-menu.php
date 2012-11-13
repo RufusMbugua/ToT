@@ -1,8 +1,7 @@
-<?php ?>
 <nav>
 	<ul>
 		<li>
-			<?php echo anchor(base_url() . 'C_front/index', 'Home'); ?>
+			<?php echo anchor(base_url() . 'C_front/home', 'Home'); ?>
 		</li>
 		<li>
 			<?php echo anchor(base_url() . 'C_front/projects', 'Projects'); ?>
@@ -15,6 +14,9 @@
 		</li>
 		<li>
 			<?php echo anchor(base_url() . 'C_front/trainees', 'Trainees'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_front/trainees', 'Finances'); ?>
 		</li>
 	</ul>
 </nav>
