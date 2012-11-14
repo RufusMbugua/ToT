@@ -12,8 +12,7 @@ class C_Authorize extends CI_Controller {
 	}
 
 	public function index() {
-		$data['title'] = 'Welcome';
-		$data['content'] = "<p>Cakes Delights</p>";
+		$data['title'] = 'Sign In';
 		$this -> load -> view('index', $data);
 	}//End of index file
 
@@ -33,8 +32,9 @@ class C_Authorize extends CI_Controller {
 
 		} else {
 			#use an ajax request and not a whole refresh
-			
-			echo ('Error');
+			$data['message']="Wrong Username";
+			$data['messageType']="error";
+			$this->load->view('index',$data);
 		}
 	}
 

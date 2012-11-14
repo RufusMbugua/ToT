@@ -10,11 +10,7 @@
 	
 
 		<section class="login">
-			<section class="form-title">
-				<section class="title-text">
-					Sign In
-				</section>
-			</section>
+        <?php $this->load->view('elements/message'); ?>
 		<?php $this->load->view('elements/login-form'); ?>
 		</section>
 		

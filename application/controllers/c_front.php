@@ -14,6 +14,8 @@ class C_Front extends CI_Controller {
 
 	public function index() {
 		$data['title'] = 'Login';
+		$data['message']="Please Login";
+			$data['messageType']="guide";
 		$this -> load -> view('index', $data);
 	}//End of index file
 

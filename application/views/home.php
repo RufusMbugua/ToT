@@ -1,7 +1,6 @@
 <?php
 ob_start();
 $sessionEmail = $this -> session -> userdata('name');
-$accessLevel=$this -> session -> userdata('userRights');
 ?>
 
 <?php $this ->load ->view('segments/header'); ?>
@@ -11,8 +10,7 @@ $accessLevel=$this -> session -> userdata('userRights');
 				<section class="user">
 					<section class="details">
 						Signed in as: <?php echo $sessionEmail ?>
-						Account Settings 
-						<a class="awesome medium">Log Out</a>
+						<a class="awesome medium" href"<?php echo base_url(); ?>C_Front/index">Log Out</a>
 					</section>
 				</section>
 			</section>
