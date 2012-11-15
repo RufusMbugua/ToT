@@ -147,7 +147,7 @@ class M_Trainers extends MY_Model {
 	function viewRecords() {
 		try {
 			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Trainers u');
-			$this -> trainers = $query -> getResult();
+			$this -> trainers = $query -> getArrayResult();
 			// array of User objects
 
 		} catch(exception $ex) {
@@ -157,4 +157,18 @@ class M_Trainers extends MY_Model {
 		return $this -> trainers;
 	}
 
+function deactivateRecord(){
+	
+	try {
+			$query = $this -> em -> createQuery('UPDATE models\Entities\E_Trainers u SET u.lastName = "Ngubia"');
+			$query -> execute();
+			// array of User objects
+
+		} catch(exception $ex) {
+			//ignore
+			$ex->getMessage();
+		}
+	
+	
+}
 }//end of class M_SystemUser)
