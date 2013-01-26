@@ -39,7 +39,7 @@
 			
 			<section class ="project list">
 				
-				
+				<?php $this->load->view('elements/donor-registration'); ?>
 				
 			</section>
 			

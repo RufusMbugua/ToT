@@ -156,19 +156,53 @@ class M_Trainers extends MY_Model {
 		}
 		return $this -> trainers;
 	}
-
-function deactivateRecord(){
 	
-	try {
-			$query = $this -> em -> createQuery('UPDATE models\Entities\E_Trainers u SET u.lastName = "Ngubia"');
-			$query -> execute();
+	function viewSpecificRecord($record,$value) {
+		try {
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Trainers u WHERE '.$record .' = '.$value);
+			$this -> trainers = $query -> getArrayResult();
+			var_dump($this -> trainers);
 			// array of User objects
 
 		} catch(exception $ex) {
 			//ignore
-			$ex->getMessage();
+			//$ex->getMessage();
 		}
 	
+		return $this -> trainers;
+	}
 	
-}
+
+	function deactivateRecord($record, $value) {
+
+		$user = $this -> em -> getRepository('models\Entities\E_Trainers') -> findOneBy(array($record => $value));
+		if (!$user) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$user -> setActive('1');
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
+	function editRecord($record, $value) {
+
+		$user = $this -> em -> getRepository('models\Entities\E_Trainers') -> findOneBy(array($record => $value));
+		if (!$user) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this ->$user -> setFirstName($this -> input -> post('firstName'));
+		$this -> $user -> setLastName($this -> input -> post('otherNames'));
+		$this -> $user -> setEmail($this -> input -> post('email'));
+		$this -> $user -> setPhoneNumber($this -> input -> post('telephone'));
+		$this -> $user -> setNameOfSchool($this -> input -> post('nameOfSchool'));
+		$this -> $user -> setResidence($this -> input -> post('residence'));
+		$this -> $user -> setNameOfcourse($this -> input -> post('nameOfCourse'));
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
 }//end of class M_SystemUser)

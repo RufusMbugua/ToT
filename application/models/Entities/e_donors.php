@@ -24,7 +24,7 @@ private $lastName;
 * */
 private $emailAddress;
 /**
-* @Column(name="phoneNumbeer", type="string",length=45, nullable=true)
+* @Column(name="phoneNumber", type="string",length=45, nullable=true)
 * */
 private $phoneNumber;
 /**
