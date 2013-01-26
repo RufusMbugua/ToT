@@ -90,19 +90,9 @@ class M_Project extends MY_Model {
 				//create an object of the model
 
 				/*timestamp option*/
-				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
-				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
-				$this -> theForm -> setLastName($this -> input -> post('otherNames'));
-				//$this -> theForm -> setDateOfBirth($this -> input -> post('dateofBirth'));
-				$this -> theForm -> setAge($this -> input -> post('email'));
-				$this -> theForm -> setPhoneNumber($this -> input -> post('telephone'));
-				//$this -> theForm -> setStartDate($this -> input -> post('startDate'));
-				//$this -> theForm -> setFinishDate($this -> input -> post('finishDate'));
-				$this -> theForm -> setNameOfSchool($this -> input -> post('nameOfSchool'));
-				$this -> theForm -> setResidence($this -> input -> post('residence'));
-				$this -> theForm -> setGroupId();
-				//$this -> theForm -> setYearOfStudy($this -> input -> post('yearOfStudy'));
-
+				$this -> theForm -> setProjectName($this -> input -> post('projectName'));
+				$this -> theForm -> setProjectType($this -> input -> post('projectType'));
+				$this -> theForm -> setProjectLocation($this -> input -> post('projectLocation'));
 				$this -> em -> persist($this -> theForm);
 
 				//now do a batched insert, default at 5

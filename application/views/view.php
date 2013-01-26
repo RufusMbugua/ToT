@@ -1,24 +1,6 @@
-<?php $this -> load -> view('segments/header'); ?>
-
-<header>
-	<section class="banner">
-		<section class="user">
-			<section class="details">
-				Signed in as:
-				Account Settings Log Out
-			</section>
-		</section>
-	</section>
-	<?php $this -> load -> view('menus/main-menu'); ?>
-
-</header>
-<section class='content'>
-	<?php $this -> load -> view('elements/message'); ?>
-	<h3><?php echo $viewName; ?></h3>
-	<?php echo anchor(base_url() . 'C_front/trainers', 'Add Trainer'); ?>
 <?php
 
-if ($viewName == 'View Trainers') {
+if ($viewName == 'Trainers') {
 	echo '
 <table>
 	<tr class="tr-title">
@@ -77,7 +59,63 @@ if ($viewName == 'View Trainers') {
 	}
 
 }
-if ($viewName == 'View Groups') {
+
+if ($viewName == 'Trainees') {
+	echo '
+	<table>
+	<tr class="tr-row">
+		<td>
+			First Name
+		</td>
+		<td>
+			Last Name
+		</td>
+		<td>
+			Age
+		</td>
+		<td>
+			Phone Number
+		</td>
+		<td>
+			Residence
+		</td>
+		<td>
+		    <a href="#">Edit</a><a href="#">Delete</a>
+		</td>
+	</tr>
+		
+		';
+
+	foreach ($trainees as $key => $value) {
+		echo '
+	<tr class="tr-row">
+		<td>
+			' . $value['firstName'] . '
+		</td>
+		<td>
+			' . $value['lastName'] . '
+		</td>
+		<td>
+			' . $value['age'] . '
+		</td>
+		<td>
+			' . $value['phoneNumber'] . '
+		</td>
+		<td>
+			' . $value['residence'] . '
+		</td>
+		<td>
+		    <a href="#">Edit</a><a href="#">Delete</a>
+		</td>
+	</tr>
+		
+		';
+	}
+
+}
+
+
+if ($viewName == 'Groups') {
 	echo '
 	<table>
 	<tr class="tr-row">
@@ -131,7 +169,7 @@ if ($viewName == 'View Groups') {
 
 }
 
-if ($viewName == 'View Project') {
+if ($viewName == 'Project') {
 	echo '
 	<table>
 	<tr class="tr-row">
@@ -184,7 +222,7 @@ if ($viewName == 'View Project') {
 	}
 
 }
-if ($viewName == 'View Donors') {
+if ($viewName == 'Donors') {
 	echo '
 	<table>
 	<tr class="tr-row">
@@ -246,11 +284,3 @@ if ($viewName == 'View Donors') {
 
 echo '</table>';
 ?>
-
-
-</section>
-<?php $this -> load -> view('segments/footer'); ?>
-
-
-
-

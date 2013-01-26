@@ -25,11 +25,11 @@ private $projectType;
 * */
 private $projectLocation;
 /**
-* @Column(name="totalInput", type="string",length=45, nullable=true)
+* @Column(name="totalInput", type="integer",length=20, nullable=true)
 * */
 private $totalInput;
 /**
-* @Column(name="totalProfit", type="string",length=45, nullable=true)
+* @Column(name="totalProfit", type="integer",length=20, nullable=true)
 * */
 private $totalProfit;
 

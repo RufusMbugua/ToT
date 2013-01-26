@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
  */
 use application\models\Entities\E_Trainees;
 
-class M_Trainers extends MY_Model {
+class M_Trainees extends MY_Model {
 	var $isUser, $email, $userRights, $affiliation;
 	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $trainees;
 
@@ -92,16 +92,10 @@ class M_Trainers extends MY_Model {
 				/*timestamp option*/
 				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
 				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
-				$this -> theForm -> setLastName($this -> input -> post('otherNames'));
-				//$this -> theForm -> setDateOfBirth($this -> input -> post('dateofBirth'));
-				$this -> theForm -> setAge($this -> input -> post('email'));
-				$this -> theForm -> setPhoneNumber($this -> input -> post('telephone'));
-				//$this -> theForm -> setStartDate($this -> input -> post('startDate'));
-				//$this -> theForm -> setFinishDate($this -> input -> post('finishDate'));
-				$this -> theForm -> setNameOfSchool($this -> input -> post('nameOfSchool'));
+				$this -> theForm -> setLastName($this -> input -> post('lastName'));
+				$this -> theForm -> setAge($this -> input -> post('age'));
+				$this -> theForm -> setPhoneNumber($this -> input -> post('phoneNumber'));
 				$this -> theForm -> setResidence($this -> input -> post('residence'));
-				$this -> theForm -> setGroupId();
-				//$this -> theForm -> setYearOfStudy($this -> input -> post('yearOfStudy'));
 
 				$this -> em -> persist($this -> theForm);
 

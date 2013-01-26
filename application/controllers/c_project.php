@@ -7,13 +7,14 @@ class C_Project extends CI_Controller {
 
 		if ($this -> m_project -> response = 'ok') {
 			//notify user of success
-			$data['form_id'] = "";
+
 			$data["messageType"] = "success";
 			$data['message'] = '<p><b>' . $this -> m_project -> rowsInserted . '</b> record(s) submitted successfully';
 			//redirect(base_url() . 'front/vehicles/index', 'location');
+			$data['viewName'] = "Project";
+			$this -> load -> model('m_project');
 			$data['project'] = $this -> m_project -> viewRecords();
-			$data['viewName'] = "View Project";
-			$this -> load -> view('view', $data);
+			$this -> load -> view('template', $data);
 
 		} else {
 			//notify user of error/failure
@@ -21,21 +22,22 @@ class C_Project extends CI_Controller {
 		}
 	}
 
-	public function view() {
-		$this -> load -> model('m_project');
+	public function register() {
 		$data["messageType"] = "guide";
-			$data['message'] = 'View';
-		$data['project'] = $this -> m_project -> viewRecords();
-		$data['viewName'] = "View Project";
-		$this -> load -> view('view', $data);
+		$data['message'] = 'Project';
+		$data['viewName'] = "Project";
+		$this -> load -> model('m_project');
 
+		$data['project'] = $this -> m_project -> viewRecords();
+
+		$this -> load -> view('template', $data);
 	}
-	
+
 	public function viewSpecific() {
 		$this -> load -> model('m_project');
 		$data["messageType"] = "guide";
-			$data['message'] = 'View';
-		$data['project'] = $this -> m_project -> viewSpecificRecord('lastName','Mbugua');
+		$data['message'] = 'View';
+		$data['project'] = $this -> m_project -> viewSpecificRecord('lastName', 'Mbugua');
 		$data['viewName'] = "View Project";
 		$this -> load -> view('view', $data);
 
@@ -50,7 +52,7 @@ class C_Project extends CI_Controller {
 
 	public function deactivate() {
 		$this -> load -> model('m_project');
-		$this -> m_project -> deactivateRecord('lastName','ia');
+		$this -> m_project -> deactivateRecord('lastName', 'ia');
 		echo 'done';
 
 	}

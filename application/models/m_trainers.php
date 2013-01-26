@@ -100,7 +100,7 @@ class M_Trainers extends MY_Model {
 				//$this -> theForm -> setFinishDate($this -> input -> post('finishDate'));
 				$this -> theForm -> setNameOfSchool($this -> input -> post('nameOfSchool'));
 				$this -> theForm -> setResidence($this -> input -> post('residence'));
-				$this -> theForm -> setNameOfcourse($this -> input -> post('nameOfCourse'));
+				$this -> theForm -> setNameOfcourse($this -> input -> post('nameOfcourse'));
 				//$this -> theForm -> setYearOfStudy($this -> input -> post('yearOfStudy'));
 
 				$this -> em -> persist($this -> theForm);
