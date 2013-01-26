@@ -50,7 +50,7 @@ if ($viewName == 'Trainers') {
 			' . $value['email'] . '
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    <a href="#" value='.$value['trainerID'].'>Edit</a><a href="#">Delete</a>
 		</td>
 	</tr>
 		

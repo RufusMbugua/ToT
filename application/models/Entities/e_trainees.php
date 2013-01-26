@@ -40,6 +40,10 @@ private $residence;
 * @Column(name="groupId", type="integer",length=11, nullable=true)
 * */
 private $groupId;
+/**
+* @Column(name="userId", type="integer",length=11, nullable=true)
+* */
+private $userId;
 
 public function getTraineeNo() {
 		return $this -> traineeNo;
@@ -88,6 +92,12 @@ public function getGroupId() {
 }
 
 public function setGroupId($groupId) { $this -> groupId = $groupId;
+}
+public function getUserId() {
+		return $this -> userId;
+}
+
+public function setUserId($userId) { $this -> userId = $userId;
 }
 }
 ?>

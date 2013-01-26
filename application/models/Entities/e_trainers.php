@@ -52,6 +52,10 @@ private $password;
 * @Column(name="active", type="integer",length=1, nullable=true)
 * */
 private $active;
+/**
+* @Column(name="userId", type="integer",length=11, nullable=true)
+* */
+private $userId;
 
 public function getTrainerID() {
 		return $this -> trainerID;
@@ -119,6 +123,12 @@ public function getActive() {
 }
 
 public function setActive($active) { $this -> active = $active;
+}
+public function getUserId() {
+		return $this -> userId;
+}
+
+public function setUserId($userId) { $this -> userId = $userId;
 }
 }
 ?>

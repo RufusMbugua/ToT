@@ -29,7 +29,6 @@ $sessionEmail = $this -> session -> userdata('name');
 						</div>
 		</section>
 		<section class="content"></section>
-		<?php $this->load->view('elements/left-sidebar'); ?>
 <?php $this ->load ->view('segments/footer'); ?>
 
 <?php
