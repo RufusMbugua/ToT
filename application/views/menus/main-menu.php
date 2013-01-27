@@ -12,6 +12,42 @@ if($userType==1){
 			<?php echo anchor(base_url() . 'C_Project/register', 'Projects'); ?>
 		</li>
 		<li>
+			<?php echo anchor(base_url() . 'C_Donors/register', 'Profile'); ?>
+		</li>
+	</ul>
+</nav>
+
+<?php
+}
+if($userType==2){
+?>
+<nav>
+	<ul>
+	
+	</ul>
+</nav>
+<?php
+}
+if($userType==3){
+?>
+<nav>
+	<ul>
+
+	</ul>
+</nav>
+<?php
+}
+if($userType==4){
+?>
+<nav>
+	<ul>
+		<li>
+			<?php echo anchor(base_url() . 'C_front/home', 'Home'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_Project/register', 'Projects'); ?>
+		</li>
+		<li>
 			<?php echo anchor(base_url() . 'C_Donors/register', 'Donors'); ?>
 		</li>
 		<li>
@@ -25,11 +61,6 @@ if($userType==1){
 		</li>
 	</ul>
 </nav>
-
-<?php 
+<?php
 }
-if($userType==2){
-	
-}
-
 ?>

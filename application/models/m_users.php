@@ -50,7 +50,10 @@ class M_Users extends MY_Model {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
 				}
-				
+				if ($this -> userType == 4) {
+					$userdetail = $this -> em -> getRepository('models\Entities\E_Administrators') -> findOneBy(array('userId' => $this -> userId));
+					$this -> name = $userdetail -> getFirstName();
+				}
 				
 				return $this -> isUser = 'true';
 			}

@@ -1,11 +1,12 @@
-<?php $this -> load -> view('segments/header'); ?>
+<?php 
+$sessionEmail = $this -> session -> userdata('name');
+$this -> load -> view('segments/header'); ?>
 
 <header>
 	<section class="banner">
 		<section class="user">
 			<section class="details">
-				Signed in as:
-				Account Settings Log Out
+				Signed in as: <?php echo $sessionEmail ?>
 			</section>
 		</section>
 	</section>
