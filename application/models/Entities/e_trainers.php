@@ -40,14 +40,7 @@ private $nameOfcourse;
 * @Column(name="moneyAllocated", type="string",length=45, nullable=true)
 * */
 private $moneyAllocated;
-/**
-* @Column(name="email", type="string",length=45, nullable=true)
-* */
-private $email;
-/**
-* @Column(name="password", type="string",length=45, nullable=true)
-* */
-private $password;
+
 /**
 * @Column(name="active", type="integer",length=1, nullable=true)
 * */
@@ -106,18 +99,7 @@ public function getMoneyAllocated() {
 
 public function setMoneyAllocated($moneyAllocated) { $this -> moneyAllocated = $moneyAllocated;
 }
-public function getEmail() {
-		return $this -> email;
-}
 
-public function setEmail($email) { $this -> email = $email;
-}
-public function getPassword() {
-		return $this -> password;
-}
-
-public function setPassword($password) { $this -> password = $password;
-}
 public function getActive() {
 		return $this -> active;
 }

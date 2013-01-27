@@ -18,13 +18,16 @@ class C_Authorize extends CI_Controller {
 
 	public function login() {
 		
-		$this -> load -> model('m_trainers');
-		$this -> m_trainers -> getUser();
-		if ($this -> m_trainers -> isUser == 'true') {
+		$this -> load -> model('m_users');
+		$this -> m_users -> getUser();
+		if ($this -> m_users -> isUser == 'true') {
 
+		//Get Data from Trainers or Trainees or Donors
+		$userType = $this -> m_users -> userType;
+		
 		
 			/*create session data*/
-			$newdata = array('name' => $this -> m_trainers -> name, 'logged_in' => TRUE);
+	        $newdata = array('name' => $this -> m_users -> name,'id' => $this -> m_users -> userId,'userType' => $this -> m_users -> userType, 'logged_in' => TRUE);
 			$this -> session -> set_userdata($newdata);
 
 			redirect(base_url() . 'C_front/home', 'refresh');

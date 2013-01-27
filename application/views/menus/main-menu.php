@@ -1,3 +1,8 @@
+<?php
+$userType = $this -> session -> userdata('userType');
+if($userType==1){
+?>
+
 <nav>
 	<ul>
 		<li>
@@ -20,3 +25,11 @@
 		</li>
 	</ul>
 </nav>
+
+<?php 
+}
+if($userType==2){
+	
+}
+
+?>
