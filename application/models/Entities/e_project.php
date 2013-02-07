@@ -32,6 +32,11 @@ private $totalInput;
 * @Column(name="totalProfit", type="integer",length=20, nullable=true)
 * */
 private $totalProfit;
+/**
+* @Column(name="financeID", type="integer",length=20, nullable=true)
+* */
+private $financeID;
+
 
 public function getProjectID() {
 		return $this -> projectID;
@@ -68,6 +73,13 @@ public function getTotalProfit() {
 }
 
 public function setTotalProfit($totalProfit) { $this -> totalProfit = $totalProfit;
+}
+
+public function getFinanceID() {
+		return $this -> financeID;
+}
+
+public function setFinanceID($financeID) { $this -> financeID = $financeID;
 }
 }
 ?>

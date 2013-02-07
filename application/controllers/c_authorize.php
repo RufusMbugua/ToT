@@ -27,10 +27,10 @@ class C_Authorize extends CI_Controller {
 		
 		
 			/*create session data*/
-	        $newdata = array('name' => $this -> m_users -> name,'id' => $this -> m_users -> userId,'userType' => $this -> m_users -> userType, 'logged_in' => TRUE);
+	        $newdata = array('name' => $this -> m_users -> name,'id' => $this -> m_users -> userId,'currentId' => $this -> m_users -> currentId,'userType' => $this -> m_users -> userType, 'logged_in' => TRUE);
 			$this -> session -> set_userdata($newdata);
 
-			redirect(base_url() . 'C_front/home', 'refresh');
+			redirect(base_url() . 'C_front/index', 'refresh');
 	
 
 		} else {

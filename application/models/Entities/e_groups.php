@@ -32,6 +32,10 @@ private $moneyAllocated;
 * @Column(name="trainerID", type="integer",length=11, nullable=true)
 * */
 private $trainerID;
+/**
+* @Column(name="projectID", type="integer",length=20, nullable=true)
+* */
+private $projectID;
 
 public function getGroupID() {
 		return $this -> groupID;
@@ -68,6 +72,13 @@ public function getTrainerID() {
 }
 
 public function setTrainerID($trainerID) { $this -> trainerID = $trainerID;
+}
+
+public function getProjectID() {
+		return $this -> projectID;
+}
+
+public function setProjectID($projectID) { $this -> projectID = $projectID;
 }
 }
 ?>

@@ -282,5 +282,53 @@ if ($viewName == 'Donors') {
 
 }
 
+if ($viewName == 'Contribution') {
+	echo '
+	<table>
+	<tr class="tr-row">
+		<td>
+			FinanceID
+		</td>
+		<td>
+			Donor Number
+		</td>
+		<td>
+			Amount
+		</td>
+		<td>
+			Contribution Date
+		</td>
+		<td>
+		    <a href="#">Edit</a><a href="#">Delete</a>
+		</td>
+	</tr>
+		
+		';
+
+	foreach ($contribution as $key => $value) {
+		echo '
+	<tr class="tr-row">
+		<td>
+			' . $value['contributionID'] . '
+		</td>
+		<td>
+			' . $value['donorNumber'] . '
+		</td>
+		<td>
+			' . $value['amount'] . '
+		</td>
+		<td>
+			' . $value['contributionDate'] . '
+		</td>
+		<td>
+		    <a href="#">Edit</a><a href="#">Delete</a>
+		</td>
+	</tr>
+		
+		';
+	}
+
+}
+
 echo '</table>';
 ?>

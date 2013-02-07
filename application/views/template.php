@@ -32,6 +32,9 @@ if ($viewName == "Trainers") {
 if ($viewName == "Trainees") {
 	$this -> load -> view('elements/trainee-registration');
 }
+if ($viewName == "Contribution") {
+	$this -> load -> view('elements/contribution-registration');
+}
 $this -> load -> view('view');
 ?>
 	

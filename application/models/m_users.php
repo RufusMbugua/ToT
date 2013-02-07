@@ -8,7 +8,7 @@ use application\models\Entities\E_Users;
 
 class M_Users extends MY_Model {
 	var $isUser, $email, $userType, $affiliation;
-	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $users,$name;
+	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $users,$name,$currentId;
 
 	function __construct() {
 		parent::__construct();
@@ -37,22 +37,26 @@ class M_Users extends MY_Model {
 				if ($this -> userType == 1) {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Donors') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
+					$this->currentId = $userdetail -> getDonorNumber();
 
 				}
 
 				if ($this -> userType == 2) {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Trainers') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
+					$this->currentId = $userdetail -> getTrainerID();
 
 				}
 
 				if ($this -> userType == 3) {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
+					$this->currentId = $userdetail -> getTraineeID();
 				}
 				if ($this -> userType == 4) {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Administrators') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
+					$this->currentId = $userdetail -> getAdministratorID();
 				}
 				
 				return $this -> isUser = 'true';
