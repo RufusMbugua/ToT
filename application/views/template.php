@@ -23,6 +23,13 @@ if ($viewName == "Donors") {
 	$this -> load -> view('elements/donor-registration');
 
 }
+if ($viewName == "Edit Donors") {
+	$this -> load -> view('elements/donor-edit');
+
+}
+
+
+
 if ($viewName == "Project") {
 	$this -> load -> view('elements/project-registration');
 }

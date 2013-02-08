@@ -214,7 +214,7 @@ if ($viewName == 'Project') {
 			' . $value['totalProfit'] . '
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    <a href="'.base_url().'C_Donors/retrieve/'.$value['projectID'].'">Edit</a><a href="#">Delete</a>
 		</td>
 	</tr>
 		
@@ -273,7 +273,7 @@ if ($viewName == 'Donors') {
 			' . $value['amountDonated'] . '
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    <a href="'.base_url().'C_Donors/retrieve/'.$value['donorNumber'].'">Edit</a><a href="#">Delete</a>
 		</td>
 	</tr>
 		

@@ -90,7 +90,7 @@ class M_Donors extends MY_Model {
 				//create an object of the model
 
 				/*timestamp option*/
-			
+
 				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
 				$this -> theForm -> setLastName($this -> input -> post('lastName'));
 				$this -> theForm -> setEmailAddress($this -> input -> post('emailAddress'));
@@ -141,7 +141,7 @@ class M_Donors extends MY_Model {
 		try {
 			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Donors u');
 			$this -> donors = $query -> getArrayResult();
-			
+
 			// array of User objects
 
 		} catch(exception $ex) {
@@ -151,9 +151,37 @@ class M_Donors extends MY_Model {
 		return $this -> donors;
 	}
 
-function deactivateRecord(){
-	
-	
-	
-}
+	function viewSpecificRecord($value) {
+		try {
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Donors u WHERE u.donorNumber = ' . $value);
+			$this -> donors = $query -> getArrayResult();
+
+			// array of User objects
+
+		} catch(exception $ex) {
+			//ignore
+			//$ex->getMessage();
+		}
+
+		return $this -> donors;
+	}
+
+	function editRecord($value) {
+
+		$this -> donors = $this -> em -> getRepository('models\Entities\E_Donors') -> findOneBy(array('donorNumber' => $value));
+
+		if (!$this -> donors) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> donors -> setFirstName($this -> input -> post('firstName'));
+		$this -> donors -> setLastName($this -> input -> post('lastName'));
+		$this -> donors -> setEmailAddress($this -> input -> post('emailAddress'));
+		$this -> donors -> setPhoneNumber($this -> input -> post('phoneNumber'));
+		$this -> donors -> setAddress($this -> input -> post('address'));
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
 }//end of class M_SystemUser)
