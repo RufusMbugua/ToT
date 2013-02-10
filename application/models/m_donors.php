@@ -183,5 +183,20 @@ class M_Donors extends MY_Model {
 		//return $this->redirect($this->generateUrl('homepage'));
 
 	}
+	
+	function deleteRecord($value) {
+
+		$this -> donors = $this -> em -> getRepository('models\Entities\E_Donors') -> findOneBy(array('Donor_ID' => $value));
+
+		if (!$this -> donors) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> em -> remove($this -> donors);
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+	
 
 }//end of class M_SystemUser)

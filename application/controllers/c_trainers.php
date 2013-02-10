@@ -53,17 +53,37 @@ class C_Trainers extends CI_Controller {
 
 	}
 
-	public function edit() {
+	public function retrieve($id) {
 		$this -> load -> model('m_trainers');
-		$this -> m_trainers -> editRecord();
-		echo 'done';
+		$this -> m_trainers -> viewSpecificRecord($id);
+		$cake = $this -> m_trainers -> trainers;
+
+		foreach ($cake as $key => $value) {
+			$data['cakeID'] = $value['Trainers_ID'];
+			$data['cakeName'] = $value['Trainers_Name'];
+		}
+
+		$data['trainers'] = $this -> m_trainers -> viewRecords();
+		$data['viewName'] = "Edit Trainers";
+		$this -> load -> view('template', $data);
 
 	}
 
-	public function deactivate() {
+	public function edit($id) {
 		$this -> load -> model('m_trainers');
-		$this -> m_trainers -> deactivateRecord('lastName','ia');
-		echo 'done';
+		$this -> m_trainers -> editRecord($id);
+		$data['viewName'] = "Trainers";
+		$data['trainers'] = $this -> m_trainers -> viewRecords();
+		$this -> load -> view('template', $data);
+
+	}
+
+	public function delete($id) {
+		$this -> load -> model('m_trainers');
+		$this -> m_trainers -> deleteRecord($id);
+		$data['viewName'] = "Trainers";
+		$data['trainers'] = $this -> m_trainers -> viewRecords();
+		$this -> load -> view('template', $data);
 
 	}
 

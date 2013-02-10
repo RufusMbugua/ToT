@@ -54,17 +54,37 @@ class C_Contribution extends CI_Controller {
 
 	}
 
-	public function edit() {
+	public function retrieve($id) {
 		$this -> load -> model('m_contribution');
-		$this -> m_contribution -> editRecord();
-		echo 'done';
+		$this -> m_contribution -> viewSpecificRecord($id);
+		$cake = $this -> m_contribution -> contribution;
+
+		foreach ($cake as $key => $value) {
+			$data['cakeID'] = $value['Contribution_ID'];
+			$data['cakeName'] = $value['Contribution_Name'];
+		}
+
+		$data['contribution'] = $this -> m_contribution -> viewRecords();
+		$data['viewName'] = "Edit Contribution";
+		$this -> load -> view('template', $data);
 
 	}
 
-	public function deactivate() {
+	public function edit($id) {
 		$this -> load -> model('m_contribution');
-		$this -> m_contribution -> deactivateRecord('lastName', 'ia');
-		echo 'done';
+		$this -> m_contribution -> editRecord($id);
+		$data['viewName'] = "Contribution";
+		$data['contribution'] = $this -> m_contribution -> viewRecords();
+		$this -> load -> view('template', $data);
+
+	}
+
+	public function delete($id) {
+		$this -> load -> model('m_contribution');
+		$this -> m_contribution -> deleteRecord($id);
+		$data['viewName'] = "Contribution";
+		$data['contribution'] = $this -> m_contribution -> viewRecords();
+		$this -> load -> view('template', $data);
 
 	}
 

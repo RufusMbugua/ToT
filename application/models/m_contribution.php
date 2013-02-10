@@ -19,7 +19,6 @@ class M_Contribution extends MY_Model {
 		$this -> trainees = '';
 	}
 
-	
 	function addRecord() {
 		$s = microtime(true);
 		/*mark the timestamp at the beginning of the transaction*/
@@ -71,7 +70,7 @@ class M_Contribution extends MY_Model {
 				/*timestamp option*/
 				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
 				$this -> theForm -> setAmount($this -> input -> post('contribution'));
-				$this -> theForm -> setDonorNumber($this->session->userdata('currentId'));
+				$this -> theForm -> setDonorNumber($this -> session -> userdata('currentId'));
 				$this -> theForm -> setContributionDate(date("l F d, Y"));
 				$this -> em -> persist($this -> theForm);
 
@@ -116,7 +115,7 @@ class M_Contribution extends MY_Model {
 
 	function viewRecords() {
 		try {
-			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_contribution u WHERE u.donorNumber='.$this->session->userdata('currentId'));
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_contribution u WHERE u.donorNumber=' . $this -> session -> userdata('currentId'));
 			$this -> trainees = $query -> getArrayResult();
 			// array of User objects
 
@@ -127,9 +126,47 @@ class M_Contribution extends MY_Model {
 		return $this -> trainees;
 	}
 
-function deactivateRecord(){
-	
-	
-	
-}
+	function viewSpecificRecord($value) {
+		try {
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Contribution u WHERE u.Contribution_ID = ' . $value);
+			$this -> contribution = $query -> getArrayResult();
+
+			// array of User objects
+
+		} catch(exception $ex) {
+			//ignore
+			//$ex->getMessage();
+		}
+
+		return $this -> contribution;
+	}
+
+	function editRecord($value) {
+
+		$this -> contribution = $this -> em -> getRepository('models\Entities\E_Contribution') -> findOneBy(array('Contribution_ID' => $value));
+
+		if (!$this -> contribution) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> contribution -> setContribution_Name($this -> input -> post('cakeName'));
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
+	function deleteRecord($value) {
+
+		$this -> contribution = $this -> em -> getRepository('models\Entities\E_Contribution') -> findOneBy(array('Contribution_ID' => $value));
+
+		if (!$this -> contribution) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> em -> remove($this -> contribution);
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
 }//end of class M_SystemUser)

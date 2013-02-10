@@ -86,10 +86,12 @@ class C_Donors extends CI_Controller {
 
 	}
 
-	public function deactivate() {
+	public function delete($id) {
 		$this -> load -> model('m_donors');
-		$this -> m_donors -> deactivateRecord('lastName', 'ia');
-		echo 'done';
+		$this -> m_donors -> deleteRecord($id);
+		$data['viewName'] = "Donors";
+		$data['donors'] = $this -> m_donors -> viewRecords();
+		$this -> load -> view('template', $data);
 
 	}
 

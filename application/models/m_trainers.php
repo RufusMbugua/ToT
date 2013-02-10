@@ -205,4 +205,19 @@ class M_Trainers extends MY_Model {
 
 	}
 
+	function deleteRecord($value) {
+
+		$this -> trainers = $this -> em -> getRepository('models\Entities\E_Trainers') -> findOneBy(array('Trainer_ID' => $value));
+
+		if (!$this -> trainers) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> em -> remove($this -> trainers);
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
+
 }//end of class M_SystemUser)

@@ -147,9 +147,47 @@ class M_Project extends MY_Model {
 		return $this -> project;
 	}
 
-function deactivateRecord(){
-	
-	
-	
-}
+function viewSpecificRecord($value) {
+		try {
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Project u WHERE u.Project_ID = ' . $value);
+			$this -> project = $query -> getArrayResult();
+
+			// array of User objects
+
+		} catch(exception $ex) {
+			//ignore
+			//$ex->getMessage();
+		}
+
+		return $this -> project;
+	}
+
+	function editRecord($value) {
+
+		$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('Project_ID' => $value));
+
+		if (!$this -> project) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> project -> setProject_Name($this -> input -> post('cakeName'));
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
+	function deleteRecord($value) {
+
+		$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('Project_ID' => $value));
+
+		if (!$this -> project) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> em -> remove($this -> project);
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
 }//end of class M_SystemUser)

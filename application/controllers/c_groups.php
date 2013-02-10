@@ -41,17 +41,37 @@ class C_Groups extends CI_Controller {
 
 	}
 
-	public function edit() {
+	public function retrieve($id) {
 		$this -> load -> model('m_groups');
-		$this -> m_groups -> editRecord();
-		echo 'done';
+		$this -> m_groups -> viewSpecificRecord($id);
+		$cake = $this -> m_groups -> groups;
+
+		foreach ($cake as $key => $value) {
+			$data['cakeID'] = $value['Groups_ID'];
+			$data['cakeName'] = $value['Groups_Name'];
+		}
+
+		$data['groups'] = $this -> m_groups -> viewRecords();
+		$data['viewName'] = "Edit Groups";
+		$this -> load -> view('template', $data);
 
 	}
 
-	public function deactivate() {
+	public function edit($id) {
 		$this -> load -> model('m_groups');
-		$this -> m_groups -> deactivateRecord('lastName','ia');
-		echo 'done';
+		$this -> m_groups -> editRecord($id);
+		$data['viewName'] = "Groups";
+		$data['groups'] = $this -> m_groups -> viewRecords();
+		$this -> load -> view('template', $data);
+
+	}
+
+	public function delete($id) {
+		$this -> load -> model('m_groups');
+		$this -> m_groups -> deleteRecord($id);
+		$data['viewName'] = "Groups";
+		$data['groups'] = $this -> m_groups -> viewRecords();
+		$this -> load -> view('template', $data);
 
 	}
 

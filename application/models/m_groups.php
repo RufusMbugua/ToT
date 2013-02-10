@@ -157,9 +157,47 @@ class M_Groups extends MY_Model {
 		return $this -> trainees;
 	}
 
-function deactivateRecord(){
-	
-	
-	
-}
+function viewSpecificRecord($value) {
+		try {
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Groups u WHERE u.Group_ID = ' . $value);
+			$this -> groups = $query -> getArrayResult();
+
+			// array of User objects
+
+		} catch(exception $ex) {
+			//ignore
+			//$ex->getMessage();
+		}
+
+		return $this -> groups;
+	}
+
+	function editRecord($value) {
+
+		$this -> groups = $this -> em -> getRepository('models\Entities\E_Groups') -> findOneBy(array('Group_ID' => $value));
+
+		if (!$this -> groups) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> groups -> setGroup_Name($this -> input -> post('groupName'));
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
+	function deleteRecord($value) {
+
+		$this -> groups = $this -> em -> getRepository('models\Entities\E_Groups') -> findOneBy(array('Group_ID' => $value));
+
+		if (!$this -> groups) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> em -> remove($this -> groups);
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
 }//end of class M_SystemUser)

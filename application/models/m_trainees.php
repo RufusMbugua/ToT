@@ -151,9 +151,47 @@ class M_Trainees extends MY_Model {
 		return $this -> trainees;
 	}
 
-function deactivateRecord(){
-	
-	
-	
-}
+function viewSpecificRecord($value) {
+		try {
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Trainees u WHERE u.Trainee_ID = ' . $value);
+			$this -> trainees = $query -> getArrayResult();
+
+			// array of User objects
+
+		} catch(exception $ex) {
+			//ignore
+			//$ex->getMessage();
+		}
+
+		return $this -> trainees;
+	}
+
+	function editRecord($value) {
+
+		$this -> trainees = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('Trainee_ID' => $value));
+
+		if (!$this -> trainees) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> trainees -> setTrainee_Name($this -> input -> post('traineeName'));
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
+	function deleteRecord($value) {
+
+		$this -> trainees = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('Trainee_ID' => $value));
+
+		if (!$this -> trainees) {
+			//throw $this -> createNotFoundException('No product found for id ');
+		}
+		$this -> em -> remove($this -> trainees);
+		$this -> em -> flush();
+
+		//return $this->redirect($this->generateUrl('homepage'));
+
+	}
+
 }//end of class M_SystemUser)

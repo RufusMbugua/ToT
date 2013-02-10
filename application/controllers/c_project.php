@@ -43,17 +43,37 @@ class C_Project extends CI_Controller {
 
 	}
 
-	public function edit() {
+	public function retrieve($id) {
 		$this -> load -> model('m_project');
-		$this -> m_project -> editRecord();
-		echo 'done';
+		$this -> m_project -> viewSpecificRecord($id);
+		$cake = $this -> m_project -> project;
+
+		foreach ($cake as $key => $value) {
+			$data['cakeID'] = $value['Project_ID'];
+			$data['cakeName'] = $value['Project_Name'];
+		}
+
+		$data['project'] = $this -> m_project -> viewRecords();
+		$data['viewName'] = "Edit Project";
+		$this -> load -> view('template', $data);
 
 	}
 
-	public function deactivate() {
+	public function edit($id) {
 		$this -> load -> model('m_project');
-		$this -> m_project -> deactivateRecord('lastName', 'ia');
-		echo 'done';
+		$this -> m_project -> editRecord($id);
+		$data['viewName'] = "Project";
+		$data['project'] = $this -> m_project -> viewRecords();
+		$this -> load -> view('template', $data);
+
+	}
+
+	public function delete($id) {
+		$this -> load -> model('m_project');
+		$this -> m_project -> deleteRecord($id);
+		$data['viewName'] = "Project";
+		$data['project'] = $this -> m_project -> viewRecords();
+		$this -> load -> view('template', $data);
 
 	}
 
