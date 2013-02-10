@@ -3,6 +3,9 @@ $sessionEmail = $this -> session -> userdata('name');
 $this -> load -> view('segments/header'); ?>
 
 <header>
+	<section class="logo">
+		<img src="<?php echo base_url(); ?>images/ToT_logo.png" />
+	</section>
 	<section class="banner">
 		<section class="user">
 			<section class="details">

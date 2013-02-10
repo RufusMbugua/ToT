@@ -31,18 +31,33 @@ if($userType==2){
 ?>
 <nav>
 	<ul>
-	
+		<li>
+			<?php echo anchor(base_url() . 'C_front/index', 'Home'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_Project/register', 'Projects'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_Donors/register', 'Donors'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_Trainers/register', 'Trainers'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_Trainees/register', 'Trainees'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_front/logout', 'Logout'); ?>
+		</li>
 	</ul>
 </nav>
 <?php
 }
 if($userType==3){
 ?>
-<nav>
-	<ul>
 
-	</ul>
-</nav>
+	
+
 <?php
 }
 if($userType==4){
@@ -50,7 +65,7 @@ if($userType==4){
 <nav>
 	<ul>
 		<li>
-			<?php echo anchor(base_url() . 'C_front/home', 'Home'); ?>
+			<?php echo anchor(base_url() . 'C_front/index', 'Home'); ?>
 		</li>
 		<li>
 			<?php echo anchor(base_url() . 'C_Project/register', 'Projects'); ?>
@@ -79,7 +94,7 @@ if($userType==''){
 <nav>
 	<ul>
 		<li>
-			<?php echo anchor(base_url() . 'C_front/home', 'Home'); ?>
+			<?php echo anchor(base_url() . 'C_front/index', 'Home'); ?>
 		</li>
 		<li>
 			<?php echo anchor(base_url() . 'C_front/aboutus', 'About Us'); ?>

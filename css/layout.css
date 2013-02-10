@@ -16,6 +16,15 @@ header nav {
 	height: 60%;
 	width: 100%;
 }
+.logo{
+	position:absolute;
+	top:0;
+	
+}
+a{
+	text-decoration:none;
+	color:#333;
+}
 nav, .content, .sidebar {
 	background: rgb(252,255,244); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(252,255,244,1) 0%, rgba(223,229,215,1) 40%, rgba(179,190,173,1) 100%); /* FF3.6+ */
@@ -33,6 +42,9 @@ nav {
 	-o-box-shadow: 0 0.5px 1px 0.6px #000;
 	width: 60%;
 	margin: auto;
+}
+nav a:hover{
+	color:#A70000;
 }
 
 .image-scroller {
