@@ -151,9 +151,9 @@ class M_Trainees extends MY_Model {
 		return $this -> trainees;
 	}
 
-function viewSpecificRecord($value) {
+	function viewSpecificRecord($value) {
 		try {
-			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Trainees u WHERE u.Trainee_ID = ' . $value);
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Trainees u WHERE u.traineeNo = ' . $value);
 			$this -> trainees = $query -> getArrayResult();
 
 			// array of User objects
@@ -168,12 +168,16 @@ function viewSpecificRecord($value) {
 
 	function editRecord($value) {
 
-		$this -> trainees = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('Trainee_ID' => $value));
+		$this -> trainees = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('traineeNo' => $value));
 
 		if (!$this -> trainees) {
 			//throw $this -> createNotFoundException('No product found for id ');
 		}
-		$this -> trainees -> setTrainee_Name($this -> input -> post('traineeName'));
+		$this -> trainees -> setFirstName($this -> input -> post('firstName'));
+		$this -> trainees -> setLastName($this -> input -> post('lastName'));
+		$this -> trainees -> setAge($this -> input -> post('age'));
+		$this -> trainees -> setPhoneNumber($this -> input -> post('phoneNumber'));
+		$this -> trainees -> setResidence($this -> input -> post('residence'));
 		$this -> em -> flush();
 
 		//return $this->redirect($this->generateUrl('homepage'));
@@ -182,7 +186,7 @@ function viewSpecificRecord($value) {
 
 	function deleteRecord($value) {
 
-		$this -> trainees = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('Trainee_ID' => $value));
+		$this -> trainees = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('traineeNo' => $value));
 
 		if (!$this -> trainees) {
 			//throw $this -> createNotFoundException('No product found for id ');

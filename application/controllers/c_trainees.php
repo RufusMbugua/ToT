@@ -31,6 +31,7 @@ class C_Trainees extends CI_Controller {
 		$this -> load -> view('view', $data);
 
 	}
+
 	public function register() {
 		$data["messageType"] = "guide";
 		$data['message'] = 'Trainees';
@@ -41,16 +42,23 @@ class C_Trainees extends CI_Controller {
 
 		$this -> load -> view('template', $data);
 	}
+
 	public function retrieve($id) {
 		$this -> load -> model('m_trainees');
 		$this -> m_trainees -> viewSpecificRecord($id);
 		$cake = $this -> m_trainees -> trainees;
 
 		foreach ($cake as $key => $value) {
-			$data['cakeID'] = $value['Trainees_ID'];
-			$data['cakeName'] = $value['Trainees_Name'];
-		}
+			$data['traineeNo'] = $value['traineeNo'];
+			$data['firstName'] = $value['firstName'];
+			$data['lastName'] = $value['lastName'];
+			$data['age'] = $value['age'];
+			$data['phoneNumber'] = $value['phoneNumber'];
+			$data['residence'] = $value['residence'];
 
+		}
+		$data["messageType"] = "guide";
+		$data['message'] = 'Trainees';
 		$data['trainees'] = $this -> m_trainees -> viewRecords();
 		$data['viewName'] = "Edit Trainees";
 		$this -> load -> view('template', $data);
@@ -61,6 +69,8 @@ class C_Trainees extends CI_Controller {
 		$this -> load -> model('m_trainees');
 		$this -> m_trainees -> editRecord($id);
 		$data['viewName'] = "Trainees";
+		$data["messageType"] = "guide";
+		$data['message'] = 'Trainees';
 		$data['trainees'] = $this -> m_trainees -> viewRecords();
 		$this -> load -> view('template', $data);
 
@@ -70,6 +80,8 @@ class C_Trainees extends CI_Controller {
 		$this -> load -> model('m_trainees');
 		$this -> m_trainees -> deleteRecord($id);
 		$data['viewName'] = "Trainees";
+		$data["messageType"] = "guide";
+		$data['message'] = 'Trainees';
 		$data['trainees'] = $this -> m_trainees -> viewRecords();
 		$this -> load -> view('template', $data);
 

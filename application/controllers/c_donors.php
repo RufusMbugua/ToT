@@ -90,6 +90,8 @@ class C_Donors extends CI_Controller {
 		$this -> load -> model('m_donors');
 		$this -> m_donors -> deleteRecord($id);
 		$data['viewName'] = "Donors";
+		$data["messageType"] = "guide";
+		$data['message'] = 'View';
 		$data['donors'] = $this -> m_donors -> viewRecords();
 		$this -> load -> view('template', $data);
 

@@ -186,7 +186,7 @@ class M_Donors extends MY_Model {
 	
 	function deleteRecord($value) {
 
-		$this -> donors = $this -> em -> getRepository('models\Entities\E_Donors') -> findOneBy(array('Donor_ID' => $value));
+		$this -> donors = $this -> em -> getRepository('models\Entities\E_Donors') -> findOneBy(array('donorNumber' => $value));
 
 		if (!$this -> donors) {
 			//throw $this -> createNotFoundException('No product found for id ');

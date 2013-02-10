@@ -149,7 +149,7 @@ class M_Project extends MY_Model {
 
 function viewSpecificRecord($value) {
 		try {
-			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Project u WHERE u.Project_ID = ' . $value);
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Project u WHERE u.projectID = ' . $value);
 			$this -> project = $query -> getArrayResult();
 
 			// array of User objects
@@ -164,12 +164,14 @@ function viewSpecificRecord($value) {
 
 	function editRecord($value) {
 
-		$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('Project_ID' => $value));
+		$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('projectID' => $value));
 
 		if (!$this -> project) {
 			//throw $this -> createNotFoundException('No product found for id ');
 		}
-		$this -> project -> setProject_Name($this -> input -> post('cakeName'));
+		$this -> project -> setProjectName($this -> input -> post('projectName'));
+		$this -> project -> setProjectType($this -> input -> post('projectType'));
+		$this -> project -> setProjectLocation($this -> input -> post('projectLocation'));
 		$this -> em -> flush();
 
 		//return $this->redirect($this->generateUrl('homepage'));
@@ -178,7 +180,7 @@ function viewSpecificRecord($value) {
 
 	function deleteRecord($value) {
 
-		$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('Project_ID' => $value));
+		$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('projectID' => $value));
 
 		if (!$this -> project) {
 			//throw $this -> createNotFoundException('No product found for id ');

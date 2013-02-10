@@ -24,15 +24,7 @@ $this -> load -> view('segments/header'); ?>
 
 if ($viewName == "Donors") {
 	$this -> load -> view('elements/donor-registration');
-
 }
-if ($viewName == "Edit Donors") {
-	$this -> load -> view('elements/donor-edit');
-
-}
-
-
-
 if ($viewName == "Project") {
 	$this -> load -> view('elements/project-registration');
 }
@@ -44,6 +36,22 @@ if ($viewName == "Trainees") {
 }
 if ($viewName == "Contribution") {
 	$this -> load -> view('elements/contribution-registration');
+}
+
+if ($viewName == "Edit Donors") {
+	$this -> load -> view('elements/donor-edit');
+}
+if ($viewName == "Edit Project") {
+	$this -> load -> view('elements/project-edit');
+}
+if ($viewName == "Edit Trainers") {
+	$this -> load -> view('elements/trainer-edit');
+}
+if ($viewName == "Edit Trainees") {
+	$this -> load -> view('elements/trainee-edit');
+}
+if ($viewName == "Edit Contribution") {
+	$this -> load -> view('elements/contribution-edit');
 }
 $this -> load -> view('view');
 ?>

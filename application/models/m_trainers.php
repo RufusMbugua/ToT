@@ -93,15 +93,11 @@ class M_Trainers extends MY_Model {
 				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
 				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
 				$this -> theForm -> setLastName($this -> input -> post('otherNames'));
-				//$this -> theForm -> setDateOfBirth($this -> input -> post('dateofBirth'));
 				$this -> theForm -> setEmail($this -> input -> post('email'));
 				$this -> theForm -> setPhoneNumber($this -> input -> post('telephone'));
-				//$this -> theForm -> setStartDate($this -> input -> post('startDate'));
-				//$this -> theForm -> setFinishDate($this -> input -> post('finishDate'));
 				$this -> theForm -> setNameOfSchool($this -> input -> post('nameOfSchool'));
 				$this -> theForm -> setResidence($this -> input -> post('residence'));
 				$this -> theForm -> setNameOfcourse($this -> input -> post('nameOfcourse'));
-				//$this -> theForm -> setYearOfStudy($this -> input -> post('yearOfStudy'));
 
 				$this -> em -> persist($this -> theForm);
 
@@ -173,18 +169,7 @@ class M_Trainers extends MY_Model {
 	}
 	
 
-	function deactivateRecord($record, $value) {
-
-		$user = $this -> em -> getRepository('models\Entities\E_Trainers') -> findOneBy(array($record => $value));
-		if (!$user) {
-			//throw $this -> createNotFoundException('No product found for id ');
-		}
-		$user -> setActive('1');
-		$this -> em -> flush();
-
-		//return $this->redirect($this->generateUrl('homepage'));
-
-	}
+	
 
 	function editRecord($record, $value) {
 

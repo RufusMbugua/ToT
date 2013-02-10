@@ -148,7 +148,7 @@ class M_Contribution extends MY_Model {
 		if (!$this -> contribution) {
 			//throw $this -> createNotFoundException('No product found for id ');
 		}
-		$this -> contribution -> setContribution_Name($this -> input -> post('cakeName'));
+		$this -> contribution -> setAmount($this -> input -> post('contribution'));
 		$this -> em -> flush();
 
 		//return $this->redirect($this->generateUrl('homepage'));

@@ -49,10 +49,13 @@ class C_Project extends CI_Controller {
 		$cake = $this -> m_project -> project;
 
 		foreach ($cake as $key => $value) {
-			$data['cakeID'] = $value['Project_ID'];
-			$data['cakeName'] = $value['Project_Name'];
+			$data['projectID'] = $value['projectID'];
+			$data['projectName'] = $value['projectName'];
+			$data['projectType'] = $value['projectType'];
+			$data['projectLocation'] = $value['projectLocation'];
 		}
-
+$data["messageType"] = "guide";
+		$data['message'] = 'View';
 		$data['project'] = $this -> m_project -> viewRecords();
 		$data['viewName'] = "Edit Project";
 		$this -> load -> view('template', $data);
@@ -62,6 +65,8 @@ class C_Project extends CI_Controller {
 	public function edit($id) {
 		$this -> load -> model('m_project');
 		$this -> m_project -> editRecord($id);
+		$data["messageType"] = "guide";
+		$data['message'] = 'View';
 		$data['viewName'] = "Project";
 		$data['project'] = $this -> m_project -> viewRecords();
 		$this -> load -> view('template', $data);
@@ -72,6 +77,8 @@ class C_Project extends CI_Controller {
 		$this -> load -> model('m_project');
 		$this -> m_project -> deleteRecord($id);
 		$data['viewName'] = "Project";
+		$data["messageType"] = "guide";
+		$data['message'] = 'View';
 		$data['project'] = $this -> m_project -> viewRecords();
 		$this -> load -> view('template', $data);
 

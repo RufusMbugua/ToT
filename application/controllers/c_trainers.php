@@ -11,7 +11,7 @@ class C_Trainers extends CI_Controller {
 			$data["messageType"] = "success";
 			$data['message'] = '<p><b>' . $this -> m_trainers -> rowsInserted . '</b> record(s) submitted successfully';
 			//redirect(base_url() . 'front/vehicles/index', 'location');
-				$data['viewName'] = "Trainers";
+			$data['viewName'] = "Trainers";
 			$this -> load -> model('m_trainers');
 
 			$data['trainers'] = $this -> m_trainers -> viewRecords();
@@ -27,12 +27,13 @@ class C_Trainers extends CI_Controller {
 	public function view() {
 		$this -> load -> model('m_trainers');
 		$data["messageType"] = "guide";
-			$data['message'] = 'View';
+		$data['message'] = 'View';
 		$data['trainers'] = $this -> m_trainers -> viewRecords();
-		$data['viewName'] = "View Trainers";
+		$data['viewName'] = "Trainers";
 		$this -> load -> view('view', $data);
 
 	}
+
 	public function register() {
 		$data["messageType"] = "guide";
 		$data['message'] = 'Trainers';
@@ -40,14 +41,15 @@ class C_Trainers extends CI_Controller {
 		$this -> load -> model('m_trainers');
 
 		$data['trainers'] = $this -> m_trainers -> viewRecords();
-
+		
 		$this -> load -> view('template', $data);
 	}
+
 	public function viewSpecific() {
 		$this -> load -> model('m_trainers');
 		$data["messageType"] = "guide";
-			$data['message'] = 'View';
-		$data['trainers'] = $this -> m_trainers -> viewSpecificRecord('lastName','Mbugua');
+		$data['message'] = 'View';
+		$data['trainers'] = $this -> m_trainers -> viewSpecificRecord('lastName', 'Mbugua');
 		$data['viewName'] = "View Trainers";
 		$this -> load -> view('view', $data);
 

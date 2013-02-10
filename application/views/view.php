@@ -50,7 +50,7 @@ if ($viewName == 'Trainers') {
 			' . $value['email'] . '
 		</td>
 		<td>
-		    <a href="#" value='.$value['trainerID'].'>Edit</a><a href="#">Delete</a>
+		   <a href="'.base_url().'C_Trainers/retrieve/'.$value['trainerID'].'">Edit</a><a href="'.base_url().'C_Trainers/delete/'.$value['trainerID'].'">Delete</a>
 		</td>
 	</tr>
 		
@@ -80,7 +80,7 @@ if ($viewName == 'Trainees') {
 			Residence
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    Operations
 		</td>
 	</tr>
 		
@@ -105,7 +105,7 @@ if ($viewName == 'Trainees') {
 			' . $value['residence'] . '
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    <a href="'.base_url().'C_Trainees/retrieve/'.$value['traineeNo'].'">Edit</a><a href="'.base_url().'C_Trainees/delete/'.$value['traineeNo'].'">Delete</a>
 		</td>
 	</tr>
 		
@@ -135,7 +135,7 @@ if ($viewName == 'Groups') {
 			Trainer ID
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    Operations
 		</td>
 	</tr>
 		
@@ -160,7 +160,7 @@ if ($viewName == 'Groups') {
 			' . $value['trainerID'] . '
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    <a href="'.base_url().'C_Groups/retrieve/'.$value['groupID'].'">Edit</a><a href="'.base_url().'C_Groups/delete/'.$value['groupID'].'">Delete</a>
 		</td>
 	</tr>
 		
@@ -189,7 +189,7 @@ if ($viewName == 'Project') {
 			Total Profit
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    Operations
 		</td>
 	</tr>
 		
@@ -214,7 +214,7 @@ if ($viewName == 'Project') {
 			' . $value['totalProfit'] . '
 		</td>
 		<td>
-		    <a href="'.base_url().'C_Donors/retrieve/'.$value['projectID'].'">Edit</a><a href="#">Delete</a>
+		    <a href="'.base_url().'C_Project/retrieve/'.$value['projectID'].'">Edit</a><a href="'.base_url().'C_Project/delete/'.$value['projectID'].'">Delete</a>
 		</td>
 	</tr>
 		
@@ -245,7 +245,7 @@ if ($viewName == 'Donors') {
 			Amount Donated
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    Operations
 		</td>
 	</tr>
 		
@@ -273,7 +273,7 @@ if ($viewName == 'Donors') {
 			' . $value['amountDonated'] . '
 		</td>
 		<td>
-		    <a href="'.base_url().'C_Donors/retrieve/'.$value['donorNumber'].'">Edit</a><a href="#">Delete</a>
+		   <a href="'.base_url().'C_Donors/retrieve/'.$value['donorNumber'].'">Edit</a><a href="'.base_url().'C_Donors/delete/'.$value['donorNumber'].'">Delete</a>
 		</td>
 	</tr>
 		
@@ -299,7 +299,7 @@ if ($viewName == 'Contribution') {
 			Contribution Date
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    Operations
 		</td>
 	</tr>
 		
@@ -321,7 +321,7 @@ if ($viewName == 'Contribution') {
 			' . $value['contributionDate'] . '
 		</td>
 		<td>
-		    <a href="#">Edit</a><a href="#">Delete</a>
+		    <a href="'.base_url().'C_Contribution/retrieve/'.$value['contributionID'].'">Edit</a><a href="'.base_url().'C_Contribution/delete/'.$value['contributionID'].'">Delete</a>
 		</td>
 	</tr>
 		

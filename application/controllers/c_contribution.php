@@ -57,11 +57,11 @@ class C_Contribution extends CI_Controller {
 	public function retrieve($id) {
 		$this -> load -> model('m_contribution');
 		$this -> m_contribution -> viewSpecificRecord($id);
-		$cake = $this -> m_contribution -> contribution;
+		$contribution = $this -> m_contribution -> contribution;
 
-		foreach ($cake as $key => $value) {
-			$data['cakeID'] = $value['Contribution_ID'];
-			$data['cakeName'] = $value['Contribution_Name'];
+		foreach ($contribution as $key => $value) {
+			$data['contributionID'] = $value['contributionID'];
+			$data['amount'] = $value['Amount'];
 		}
 
 		$data['contribution'] = $this -> m_contribution -> viewRecords();
