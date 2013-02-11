@@ -57,15 +57,19 @@ class C_Donors extends CI_Controller {
 	public function retrieve($id) {
 		$this -> load -> model('m_donors');
 		$this -> m_donors -> viewSpecificRecord($id);
-		$cake = $this -> m_donors -> donors;
+		$donor = $this -> m_donors -> donors;
 
-		foreach ($cake as $key => $value) {
+		foreach ($donor as $key => $value) {				
+				
+			
 			$data['donorNumber'] = $value['donorNumber'];
 			$data['firstName'] = $value['firstName'];
 			$data['lastName'] = $value['lastName'];
 			$data['emailAddress'] = $value['emailAddress'];
 			$data['phoneNumber'] = $value['phoneNumber'];
 			$data['address'] = $value['address'];
+			$data['username'] = $this->m_donors->username;
+			$data['password'] = $this->m_donors->password;
 		}
 		$data["messageType"] = "guide";
 		$data['message'] = 'Edit';

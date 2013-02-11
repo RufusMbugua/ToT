@@ -5,10 +5,11 @@ if (!defined('BASEPATH'))
  *model to SystemUser entity
  */
 use application\models\Entities\E_Donors;
+use application\models\Entities\E_Users;
 
 class M_Donors extends MY_Model {
 	var $isUser, $email, $userRights, $affiliation;
-	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $donors;
+	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $donors, $username, $password;
 
 	function __construct() {
 		parent::__construct();
@@ -85,17 +86,28 @@ class M_Donors extends MY_Model {
 			/*method defined in MY_Model*/
 
 			for ($i = 1; $i <= $this -> noOfInsertsBatch; ++$i) {
-
+				$this -> users = new \models\Entities\E_Users();
 				$this -> theForm = new \models\Entities\E_Donors();
+
 				//create an object of the model
 
 				/*timestamp option*/
+				$this -> users -> setUsername('000');
+				$this -> users -> setPassword('000');
+				$this -> users -> setUserType(1);
+				$this -> em -> persist($this -> users);
+				$this -> em -> flush();
+				$this -> em -> clear();
+
+				$this -> donors = $this -> em -> getRepository('models\Entities\E_Users') -> findOneBy(array('username' => '000'));
+				$id = $this -> donors -> getUserId();
 
 				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
 				$this -> theForm -> setLastName($this -> input -> post('lastName'));
 				$this -> theForm -> setEmailAddress($this -> input -> post('emailAddress'));
 				$this -> theForm -> setPhoneNumber($this -> input -> post('phoneNumber'));
 				$this -> theForm -> setAddress($this -> input -> post('address'));
+				$this -> theForm -> setUserID($id);
 				$this -> em -> persist($this -> theForm);
 
 				//now do a batched insert, default at 5
@@ -156,6 +168,12 @@ class M_Donors extends MY_Model {
 			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Donors u WHERE u.donorNumber = ' . $value);
 			$this -> donors = $query -> getArrayResult();
 
+			foreach ($this -> donors as $key => $value) {
+				$this -> users = $this -> em -> getRepository('models\Entities\E_Users') -> findOneBy(array('userId' => $value['userId']));		
+				$this -> username = $this -> users -> getUsername();
+				$this -> password = $this -> users -> getPassword();
+			}
+
 			// array of User objects
 
 		} catch(exception $ex) {
@@ -170,20 +188,27 @@ class M_Donors extends MY_Model {
 
 		$this -> donors = $this -> em -> getRepository('models\Entities\E_Donors') -> findOneBy(array('donorNumber' => $value));
 
+		$id = $this -> donors -> getUserID();
+
+		$this -> users = $this -> em -> getRepository('models\Entities\E_Users') -> findOneBy(array('userId' => $id));
+
 		if (!$this -> donors) {
 			//throw $this -> createNotFoundException('No product found for id ');
 		}
+
 		$this -> donors -> setFirstName($this -> input -> post('firstName'));
 		$this -> donors -> setLastName($this -> input -> post('lastName'));
 		$this -> donors -> setEmailAddress($this -> input -> post('emailAddress'));
 		$this -> donors -> setPhoneNumber($this -> input -> post('phoneNumber'));
 		$this -> donors -> setAddress($this -> input -> post('address'));
+		$this -> users -> setUsername($this -> input -> post('username'));
+		$this -> users -> setPassword($this -> input -> post('password'));
 		$this -> em -> flush();
 
 		//return $this->redirect($this->generateUrl('homepage'));
 
 	}
-	
+
 	function deleteRecord($value) {
 
 		$this -> donors = $this -> em -> getRepository('models\Entities\E_Donors') -> findOneBy(array('donorNumber' => $value));
@@ -197,6 +222,5 @@ class M_Donors extends MY_Model {
 		//return $this->redirect($this->generateUrl('homepage'));
 
 	}
-	
 
 }//end of class M_SystemUser)

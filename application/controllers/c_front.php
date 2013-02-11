@@ -18,7 +18,6 @@ class C_Front extends CI_Controller {
 	}//End of index file
 
 	public function login() {
-		$this->session->sess_destroy();
 		$data["title"] = "Login";
 		$data['message'] = "Please Login";
 		$data['messageType'] = "guide";
@@ -33,26 +32,14 @@ class C_Front extends CI_Controller {
 	}
 	
 
-	public function projects() {
-		$data["title"] = "Projects";
-		$this -> load -> view("projects", $data);
-	}
-
-	public function donors() {
-		$data["title"] = "Donors";
-		$this -> load -> view("donors", $data);
-	}
-
-	public function trainers() {
-		$data["title"] = "Trainers";
+public function register() {
 		$data["messageType"] = "guide";
-		$data["message"] = "Please Fill In Registration Form";
-		$this -> load -> view("trainers", $data);
-	}
+		$data['message'] = 'User';
+		$data['viewName'] = "User";
 
-	public function trainees() {
-		$data["title"] = "Trainees";
-		$this -> load -> view("trainees", $data);
+		$data['users'] = '';
+		
+		$this -> load -> view('template', $data);
 	}
 
 }

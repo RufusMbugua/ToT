@@ -61,9 +61,11 @@ class C_Contribution extends CI_Controller {
 
 		foreach ($contribution as $key => $value) {
 			$data['contributionID'] = $value['contributionID'];
-			$data['amount'] = $value['Amount'];
+			$data['amount'] = $value['amount'];
+			$data['project'] = $value['project'];
 		}
-
+		$data["messageType"] = "guide";
+		$data['message'] = 'View';
 		$data['contribution'] = $this -> m_contribution -> viewRecords();
 		$data['viewName'] = "Edit Contribution";
 		$this -> load -> view('template', $data);
@@ -74,6 +76,8 @@ class C_Contribution extends CI_Controller {
 		$this -> load -> model('m_contribution');
 		$this -> m_contribution -> editRecord($id);
 		$data['viewName'] = "Contribution";
+		$data["messageType"] = "guide";
+		$data['message'] = 'View';
 		$data['contribution'] = $this -> m_contribution -> viewRecords();
 		$this -> load -> view('template', $data);
 

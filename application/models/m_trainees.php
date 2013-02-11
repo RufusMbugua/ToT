@@ -5,10 +5,11 @@ if (!defined('BASEPATH'))
  *model to SystemUser entity
  */
 use application\models\Entities\E_Trainees;
+use application\models\Entities\E_Users;
 
 class M_Trainees extends MY_Model {
 	var $isUser, $email, $userRights, $affiliation;
-	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $trainees;
+	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $trainees, $username, $password;
 
 	function __construct() {
 		parent::__construct();
@@ -86,17 +87,26 @@ class M_Trainees extends MY_Model {
 
 			for ($i = 1; $i <= $this -> noOfInsertsBatch; ++$i) {
 
+				$this -> users = new \models\Entities\E_Users();
 				$this -> theForm = new \models\Entities\E_Trainees();
 				//create an object of the model
 
-				/*timestamp option*/
-				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
+				$this -> users -> setUsername('111');
+				$this -> users -> setPassword('111');
+				$this -> users -> setUserType(3);
+				$this -> em -> persist($this -> users);
+				$this -> em -> flush();
+				$this -> em -> clear();
+
+				$this -> donors = $this -> em -> getRepository('models\Entities\E_Users') -> findOneBy(array('username' => '111'));
+				$id = $this -> donors -> getUserId();
+
 				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
 				$this -> theForm -> setLastName($this -> input -> post('lastName'));
 				$this -> theForm -> setAge($this -> input -> post('age'));
 				$this -> theForm -> setPhoneNumber($this -> input -> post('phoneNumber'));
 				$this -> theForm -> setResidence($this -> input -> post('residence'));
-
+				$this -> theForm -> setUserId($id);
 				$this -> em -> persist($this -> theForm);
 
 				//now do a batched insert, default at 5
@@ -156,6 +166,11 @@ class M_Trainees extends MY_Model {
 			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Trainees u WHERE u.traineeNo = ' . $value);
 			$this -> trainees = $query -> getArrayResult();
 
+			foreach ($this -> trainees as $key => $value) {
+				$this -> users = $this -> em -> getRepository('models\Entities\E_Users') -> findOneBy(array('userId' => $value['userId']));
+				$this -> username = $this -> users -> getUsername();
+				$this -> password = $this -> users -> getPassword();
+			}
 			// array of User objects
 
 		} catch(exception $ex) {
@@ -170,6 +185,10 @@ class M_Trainees extends MY_Model {
 
 		$this -> trainees = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('traineeNo' => $value));
 
+		$id = $this -> trainees -> getUserID();
+
+		$this -> users = $this -> em -> getRepository('models\Entities\E_Users') -> findOneBy(array('userId' => $id));
+
 		if (!$this -> trainees) {
 			//throw $this -> createNotFoundException('No product found for id ');
 		}
@@ -178,6 +197,8 @@ class M_Trainees extends MY_Model {
 		$this -> trainees -> setAge($this -> input -> post('age'));
 		$this -> trainees -> setPhoneNumber($this -> input -> post('phoneNumber'));
 		$this -> trainees -> setResidence($this -> input -> post('residence'));
+		$this -> users -> setUsername($this -> input -> post('username'));
+		$this -> users -> setPassword($this -> input -> post('password'));
 		$this -> em -> flush();
 
 		//return $this->redirect($this->generateUrl('homepage'));

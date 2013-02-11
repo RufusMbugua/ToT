@@ -6,8 +6,8 @@
 
 		<input type="submit" value="submit" />
 		<section class= "links">
-			<a style="float:left">Forgot Password</a>
-			<a style="float:right">Register</a>
+			<a style="float:left" >Forgot Password</a>
+			<a style="float:right" href="<?php echo base_url(); ?>C_Front/register" >Register</a>
 		</section>
 
 </form>

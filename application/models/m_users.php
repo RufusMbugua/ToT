@@ -5,10 +5,13 @@ if (!defined('BASEPATH'))
  *model to SystemUser entity
  */
 use application\models\Entities\E_Users;
+use application\models\Entities\E_Trainers;
+use application\models\Entities\E_Trainees;
+use application\models\Entities\E_Donors;
 
 class M_Users extends MY_Model {
 	var $isUser, $email, $userType, $affiliation;
-	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $users,$name,$currentId;
+	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $users, $name, $currentId;
 
 	function __construct() {
 		parent::__construct();
@@ -30,35 +33,34 @@ class M_Users extends MY_Model {
 
 			if ($user) {
 				$this -> userId = $user -> getUserId();
-				
+
 				$this -> userType = $user -> getUserType();
-				
 
 				if ($this -> userType == 1) {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Donors') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
-					$this->currentId = $userdetail -> getDonorNumber();
+					$this -> currentId = $userdetail -> getDonorNumber();
 
 				}
 
 				if ($this -> userType == 2) {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Trainers') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
-					$this->currentId = $userdetail -> getTrainerID();
+					$this -> currentId = $userdetail -> getTrainerID();
 
 				}
 
 				if ($this -> userType == 3) {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Trainees') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
-					$this->currentId = $userdetail -> getTraineeID();
+					$this -> currentId = $userdetail -> getTraineeNo();
 				}
 				if ($this -> userType == 4) {
 					$userdetail = $this -> em -> getRepository('models\Entities\E_Administrators') -> findOneBy(array('userId' => $this -> userId));
 					$this -> name = $userdetail -> getFirstName();
-					$this->currentId = $userdetail -> getAdministratorID();
+					$this -> currentId = $userdetail -> getAdministratorID();
 				}
-				
+
 				return $this -> isUser = 'true';
 			}
 
@@ -117,20 +119,23 @@ class M_Users extends MY_Model {
 
 				$this -> theForm = new \models\Entities\E_Users();
 				//create an object of the model
+				$type = $this -> input -> post('type');
 
-				/*timestamp option*/
-				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
-				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
-				$this -> theForm -> setLastName($this -> input -> post('otherNames'));
-				//$this -> theForm -> setDateOfBirth($this -> input -> post('dateofBirth'));
-				$this -> theForm -> setEmail($this -> input -> post('email'));
-				$this -> theForm -> setPhoneNumber($this -> input -> post('telephone'));
-				//$this -> theForm -> setStartDate($this -> input -> post('startDate'));
-				//$this -> theForm -> setFinishDate($this -> input -> post('finishDate'));
-				$this -> theForm -> setNameOfSchool($this -> input -> post('nameOfSchool'));
-				$this -> theForm -> setResidence($this -> input -> post('residence'));
-				$this -> theForm -> setNameOfcourse($this -> input -> post('nameOfcourse'));
-				//$this -> theForm -> setYearOfStudy($this -> input -> post('yearOfStudy'));
+				if ($type == "Donor") {
+					$this -> load -> model('m_donors');
+					$this -> m_donors -> addRecord();
+
+				}
+				if ($type == "Trainer") {
+					$this -> load -> model('m_trainers');
+					$this -> m_trainers -> addRecord();
+				}
+				if ($type == "Trainee") {
+					$this -> load -> model('m_trainees');
+					$this -> m_trainees -> addRecord();
+				}
+
+				
 
 				$this -> em -> persist($this -> theForm);
 

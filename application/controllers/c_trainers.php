@@ -58,11 +58,17 @@ class C_Trainers extends CI_Controller {
 	public function retrieve($id) {
 		$this -> load -> model('m_trainers');
 		$this -> m_trainers -> viewSpecificRecord($id);
-		$cake = $this -> m_trainers -> trainers;
+		$trainee = $this -> m_trainees -> trainees;
 
-		foreach ($cake as $key => $value) {
-			$data['cakeID'] = $value['Trainers_ID'];
-			$data['cakeName'] = $value['Trainers_Name'];
+		foreach ($trainee as $key => $value) {
+			$data['trainerID'] = $value['traineeID'];
+			$data['firstName'] = $value['firstName'];
+			$data['lastName'] = $value['lastName'];
+			$data['age'] = $value['age'];
+			$data['phoneNumber'] = $value['phoneNumber'];
+			$data['residence'] = $value['residence'];
+			$data['username'] = $this -> m_trainees -> username;
+			$data['password'] = $this -> m_trainees -> password;
 		}
 
 		$data['trainers'] = $this -> m_trainers -> viewRecords();

@@ -8,7 +8,7 @@ use application\models\Entities\E_Contribution;
 
 class M_Contribution extends MY_Model {
 	var $isUser, $email, $userRights, $affiliation;
-	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $trainees;
+	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $contribution,$projectName;
 
 	function __construct() {
 		parent::__construct();
@@ -16,7 +16,7 @@ class M_Contribution extends MY_Model {
 		$this -> email = '';
 		$this -> userRights = '';
 		$this -> affiliation = '';
-		$this -> trainees = '';
+		$this -> contribution = '';
 	}
 
 	function addRecord() {
@@ -116,20 +116,23 @@ class M_Contribution extends MY_Model {
 	function viewRecords() {
 		try {
 			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_contribution u WHERE u.donorNumber=' . $this -> session -> userdata('currentId'));
-			$this -> trainees = $query -> getArrayResult();
+			$this -> contribution = $query -> getArrayResult();
 			// array of User objects
 
 		} catch(exception $ex) {
 			//ignore
 			//$ex->getMessage();
 		}
-		return $this -> trainees;
+		return $this -> contribution;
 	}
 
 	function viewSpecificRecord($value) {
 		try {
-			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Contribution u WHERE u.Contribution_ID = ' . $value);
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Contribution u WHERE u.contributionID = ' . $value);
 			$this -> contribution = $query -> getArrayResult();
+
+			$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('financeID' =>  $value));
+			$this->projectName = $this -> project -> getProjectName();
 
 			// array of User objects
 
@@ -143,7 +146,7 @@ class M_Contribution extends MY_Model {
 
 	function editRecord($value) {
 
-		$this -> contribution = $this -> em -> getRepository('models\Entities\E_Contribution') -> findOneBy(array('Contribution_ID' => $value));
+		$this -> contribution = $this -> em -> getRepository('models\Entities\E_Contribution') -> findOneBy(array('contributionID' => $value));
 
 		if (!$this -> contribution) {
 			//throw $this -> createNotFoundException('No product found for id ');
@@ -157,7 +160,7 @@ class M_Contribution extends MY_Model {
 
 	function deleteRecord($value) {
 
-		$this -> contribution = $this -> em -> getRepository('models\Entities\E_Contribution') -> findOneBy(array('Contribution_ID' => $value));
+		$this -> contribution = $this -> em -> getRepository('models\Entities\E_Contribution') -> findOneBy(array('contributionID' => $value));
 
 		if (!$this -> contribution) {
 			//throw $this -> createNotFoundException('No product found for id ');

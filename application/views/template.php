@@ -53,6 +53,11 @@ if ($viewName == "Edit Trainees") {
 if ($viewName == "Edit Contribution") {
 	$this -> load -> view('elements/contribution-edit');
 }
+
+
+if ($viewName == "User") {
+	$this -> load -> view('elements/registration');
+}
 $this -> load -> view('view');
 ?>
 	

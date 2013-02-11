@@ -93,7 +93,6 @@ class M_Trainers extends MY_Model {
 				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
 				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
 				$this -> theForm -> setLastName($this -> input -> post('otherNames'));
-				$this -> theForm -> setEmail($this -> input -> post('email'));
 				$this -> theForm -> setPhoneNumber($this -> input -> post('telephone'));
 				$this -> theForm -> setNameOfSchool($this -> input -> post('nameOfSchool'));
 				$this -> theForm -> setResidence($this -> input -> post('residence'));

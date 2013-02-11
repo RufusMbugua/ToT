@@ -56,7 +56,19 @@ if($userType==2){
 if($userType==3){
 ?>
 
-	
+	<nav>
+	<ul>
+		<li>
+			<?php echo anchor(base_url() . 'C_front/index', 'Home'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_Trainees/register', 'Trainees'); ?>
+		</li>
+		<li>
+			<?php echo anchor(base_url() . 'C_front/logout', 'Logout'); ?>
+		</li>
+	</ul>
+</nav>
 
 <?php
 }
