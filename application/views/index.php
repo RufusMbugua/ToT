@@ -22,12 +22,12 @@ $sessionEmail = $this -> session -> userdata('name');
 		<section class="image-scroller">
 			<div class="slider-wrapper theme-default">
 							<div id="slider" class="nivoSlider">
-								<img src="<?php echo base_url(); ?>images/nemo.jpg" data-thumb="<?php echo base_url(); ?>images/nemo.jpg" alt="" />
-								<img src="<?php echo base_url(); ?>images/toystory.jpg" data-thumb="<?php echo base_url(); ?>images/toystory.jpg" alt="" title="This is an example of a caption" />
-								<img src="<?php echo base_url(); ?>images/up.jpg" data-thumb="<?php echo base_url(); ?>images/up.jpg" alt=""/>
+								<img src="<?php echo base_url(); ?>images/a.jpg" data-thumb="<?php echo base_url(); ?>images/nemo.jpg" alt="" />
+								<img src="<?php echo base_url(); ?>images/b.jpg" data-thumb="<?php echo base_url(); ?>images/toystory.jpg" alt="" />
+								<img src="<?php echo base_url(); ?>images/c.jpg" data-thumb="<?php echo base_url(); ?>images/up.jpg" alt=""/>
 							</div>
 							<div id="htmlcaption" class="nivo-html-caption">
-								<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+								<strong>Kianda Foundation Projects Acheived</strong>
 							</div>
 						</div>
 		</section>

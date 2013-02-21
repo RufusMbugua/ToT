@@ -38,9 +38,6 @@ if($userType==2){
 			<?php echo anchor(base_url() . 'C_Project/register', 'Projects'); ?>
 		</li>
 		<li>
-			<?php echo anchor(base_url() . 'C_Donors/register', 'Donors'); ?>
-		</li>
-		<li>
 			<?php echo anchor(base_url() . 'C_Trainers/register', 'Trainers'); ?>
 		</li>
 		<li>
@@ -92,7 +89,7 @@ if($userType==4){
 			<?php echo anchor(base_url() . 'C_Trainees/register', 'Trainees'); ?>
 		</li>
 		<li>
-			<?php echo anchor(base_url() . 'C_front/trainees', 'Finances'); ?>
+			<?php echo anchor(base_url() . 'C_front/report', 'Reports'); ?>
 		</li>
 		<li>
 			<?php echo anchor(base_url() . 'C_front/logout', 'Logout'); ?>

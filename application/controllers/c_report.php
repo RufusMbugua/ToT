@@ -89,7 +89,7 @@ class C_Report extends MY_Controller {
 
 	public function contribution() {
 		$this -> load -> model('m_contribution');
-		$contribution = $this -> m_contribution -> viewRecords();
+		$contribution = $this -> m_contribution -> viewAllContributions();
 
 		$html = '';
 		$html .= '

@@ -4,10 +4,10 @@
 		<option>Trainer</option>
 		<option>Trainee</option>
 	</select>
-	<input type="text" name="firstName" placeholder="First Name"/>
-	<input type="text" name="lastName" placeholder="Last Name"/>
-	<input type="text" name="emailAddress" placeholder="Email Address"/>
-	<input type="text" name="phoneNumber" placeholder="Phone Number"/>
-	<input type="text" name="address" placeholder="Address"/>
+	<input type="text" name="firstName" placeholder="First Name" required/>
+	<input type="text" name="lastName" placeholder="Last Name" required/>
+	<input type="text" name="emailAddress" placeholder="Email Address" required/>
+	<input type="text" name="phoneNumber" placeholder="Phone Number" required/>
+	<input type="text" name="address" placeholder="Address" required/>
 	<input type="submit" value="register" />
 </form>

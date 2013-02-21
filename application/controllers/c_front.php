@@ -42,5 +42,35 @@ public function register() {
 		$this -> load -> view('template', $data);
 	}
 
+public function aboutus() {
+		$data["messageType"] = "guide";
+		$data['message'] = 'AboutUs';
+		$data['viewName'] = "AboutUs";
+
+		$data['users'] = '';
+		
+		$this -> load -> view('template', $data);
+	}
+
+public function contactus() {
+		$data["messageType"] = "guide";
+		$data['message'] = 'ContactUs';
+		$data['viewName'] = "ContactUs";
+
+		$data['users'] = '';
+		
+		$this -> load -> view('template', $data);
+	}
+
+public function report() {
+		$data["messageType"] = "guide";
+		$data['message'] = 'Reports';
+		$data['viewName'] = "Reports";
+
+		$data['users'] = '';
+		
+		$this -> load -> view('template', $data);
+	}
+
 }
 ?>

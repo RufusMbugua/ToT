@@ -58,6 +58,18 @@ if ($viewName == "Edit Contribution") {
 if ($viewName == "User") {
 	$this -> load -> view('elements/registration');
 }
+if ($viewName == "AboutUs") {
+	$this -> load -> view('elements/aboutus');
+}
+if ($viewName == "ContactUs") {
+	$this -> load -> view('elements/contactus');
+}
+if ($viewName == "Reports") {
+	$this -> load -> view('report');
+}
+if ($viewName == "Reergis") {
+	$this -> load -> view('elements/register');
+}
 $this -> load -> view('view');
 ?>
 	

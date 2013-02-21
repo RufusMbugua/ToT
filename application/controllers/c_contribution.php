@@ -56,13 +56,17 @@ class C_Contribution extends CI_Controller {
 
 	public function retrieve($id) {
 		$this -> load -> model('m_contribution');
+		$this -> load -> model('m_project');
 		$this -> m_contribution -> viewSpecificRecord($id);
+		$projectList = $this -> m_project -> viewRecords();
+		var_dump($projectList);
 		$contribution = $this -> m_contribution -> contribution;
 
 		foreach ($contribution as $key => $value) {
 			$data['contributionID'] = $value['contributionID'];
 			$data['amount'] = $value['amount'];
-			$data['project'] = $value['project'];
+			$data['projectName'] = $this -> m_contribution -> projectName;
+			$data['projectList'] = $projectList;
 		}
 		$data["messageType"] = "guide";
 		$data['message'] = 'View';
@@ -87,6 +91,8 @@ class C_Contribution extends CI_Controller {
 		$this -> load -> model('m_contribution');
 		$this -> m_contribution -> deleteRecord($id);
 		$data['viewName'] = "Contribution";
+		$data["messageType"] = "guide";
+		$data['message'] = 'Delete';
 		$data['contribution'] = $this -> m_contribution -> viewRecords();
 		$this -> load -> view('template', $data);
 

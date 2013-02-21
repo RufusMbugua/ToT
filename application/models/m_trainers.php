@@ -5,6 +5,7 @@ if (!defined('BASEPATH'))
  *model to SystemUser entity
  */
 use application\models\Entities\E_Trainers;
+use application\models\Entities\E_Users;
 
 class M_Trainers extends MY_Model {
 	var $isUser, $email, $userRights, $affiliation;
@@ -85,11 +86,19 @@ class M_Trainers extends MY_Model {
 			/*method defined in MY_Model*/
 
 			for ($i = 1; $i <= $this -> noOfInsertsBatch; ++$i) {
+				$this -> users = new \models\Entities\E_Users();
 
 				$this -> theForm = new \models\Entities\E_Trainers();
 				//create an object of the model
-
+$this -> users -> setUsername('222');
+				$this -> users -> setPassword('222');
+				$this -> users -> setUserType(2);
+				$this -> em -> persist($this -> users);
+				$this -> em -> flush();
+				$this -> em -> clear();
 				/*timestamp option*/
+				$this -> donors = $this -> em -> getRepository('models\Entities\E_Users') -> findOneBy(array('username' => '222'));
+				$id = $this -> donors -> getUserId();
 				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
 				$this -> theForm -> setFirstName($this -> input -> post('firstName'));
 				$this -> theForm -> setLastName($this -> input -> post('otherNames'));
@@ -97,6 +106,7 @@ class M_Trainers extends MY_Model {
 				$this -> theForm -> setNameOfSchool($this -> input -> post('nameOfSchool'));
 				$this -> theForm -> setResidence($this -> input -> post('residence'));
 				$this -> theForm -> setNameOfcourse($this -> input -> post('nameOfcourse'));
+				$this -> theForm -> setUserId($id);
 
 				$this -> em -> persist($this -> theForm);
 

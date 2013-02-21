@@ -8,7 +8,7 @@ use application\models\Entities\E_Contribution;
 
 class M_Contribution extends MY_Model {
 	var $isUser, $email, $userRights, $affiliation;
-	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $contribution,$projectName;
+	var $id, $attr, $frags, $elements, $theIds, $noOfInserts, $batchSize, $contribution, $projectName;
 
 	function __construct() {
 		parent::__construct();
@@ -125,14 +125,27 @@ class M_Contribution extends MY_Model {
 		}
 		return $this -> contribution;
 	}
+	
+	function viewAllContributions() {
+		try {
+			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_contribution u');
+			$this -> contribution = $query -> getArrayResult();
+			// array of User objects
+
+		} catch(exception $ex) {
+			//ignore
+			//$ex->getMessage();
+		}
+		return $this -> contribution;
+	}
 
 	function viewSpecificRecord($value) {
 		try {
 			$query = $this -> em -> createQuery('SELECT u FROM models\Entities\E_Contribution u WHERE u.contributionID = ' . $value);
 			$this -> contribution = $query -> getArrayResult();
 
-			$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('financeID' =>  $value));
-			$this->projectName = $this -> project -> getProjectName();
+			$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('financeID' => $value));
+			$this -> projectName = $this -> project -> getProjectName();
 
 			// array of User objects
 
@@ -148,9 +161,14 @@ class M_Contribution extends MY_Model {
 
 		$this -> contribution = $this -> em -> getRepository('models\Entities\E_Contribution') -> findOneBy(array('contributionID' => $value));
 
+		$this -> project = $this -> em -> getRepository('models\Entities\E_Project') -> findOneBy(array('projectName' => $this->input->post('projectList')));
+		$financeID = $this->project->getFinanceID();
+		
 		if (!$this -> contribution) {
 			//throw $this -> createNotFoundException('No product found for id ');
 		}
+		
+		
 		$this -> contribution -> setAmount($this -> input -> post('contribution'));
 		$this -> em -> flush();
 

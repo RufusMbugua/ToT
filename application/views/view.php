@@ -241,9 +241,7 @@ if ($viewName == 'Donors') {
 		<td>
 			Address
 		</td>
-		<td>
-			Amount Donated
-		</td>
+		
 		<td>
 		    Operations
 		</td>
@@ -269,9 +267,7 @@ if ($viewName == 'Donors') {
 		<td>
 			' . $value['address'] . '
 		</td>
-		<td>
-			' . $value['amountDonated'] . '
-		</td>
+		
 		<td>
 		   <a href="'.base_url().'C_Donors/retrieve/'.$value['donorNumber'].'">Edit</a><a href="'.base_url().'C_Donors/delete/'.$value['donorNumber'].'">Delete</a>
 		</td>
